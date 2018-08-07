@@ -1,6 +1,6 @@
 require python-catkin-pkg.inc
 
-inherit distutils3
+inherit setuptools3
 
 PROVIDES += "python3-catkin-pkg-modules"
 PROVIDES_append_class-native = " python3-catkin-pkg-modules-native"
