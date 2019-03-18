@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "3c64f6a7ba0664f9e9a96ba6dca56f74"
 SRC_URI[sha256sum] = "fb4e577af5f26549e7f0c97a606770886b6bc3373cd26326bf6cdbc88a339e4d"
 S = "${WORKDIR}/${PN}-release-release-crystal-${PN}-0.6.2-0"
 
-inherit catkin
+inherit ament

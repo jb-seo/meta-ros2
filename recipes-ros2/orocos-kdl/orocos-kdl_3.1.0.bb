@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "8fcdd0c6d26d78c32312666c31893df4"
 SRC_URI[sha256sum] = "2c444773f68360b316d826a5bf7c0f12e9a3989d90eb2d350e703a6226a4303e"
 S = "${WORKDIR}/orocos_kinematics_dynamics-release-release-crystal-orocos_kdl-3.1.0-0"
 
-inherit catkin
+inherit ament

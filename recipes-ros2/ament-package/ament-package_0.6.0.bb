@@ -15,4 +15,5 @@ SRC_URI[md5sum] = "65011c1ab83c0c9967d8a815f9938b0f"
 SRC_URI[sha256sum] = "93eb732b8925aa6e1c265ef6c803225354debff818830762cc887729d8e47f6b"
 S = "${WORKDIR}/ament_package-release-release-crystal-ament_package-0.6.0-0"
 
-inherit catkin
+BBCLASSEXTEND += "native"
+inherit ros-bpn setuptools3

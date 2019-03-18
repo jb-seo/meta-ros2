@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "4be42040e2081cb858d82d3a0a731313"
 SRC_URI[sha256sum] = "2b900f9b7189e874bb2d13b56426e6d1c2c6d632e92e69890b1aa32bd9d04ddb"
 S = "${WORKDIR}/teleop_twist_keyboard-release-release-crystal-teleop_twist_keyboard-2.2.0-0"
 
-inherit catkin
+inherit ament

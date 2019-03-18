@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "1e1894f9c0a68b54e9c0832e16daedcd"
 SRC_URI[sha256sum] = "e9fcfc0d55a4797bf6c9b6313816d9ef73301239cc8201018b567e81897b298b"
 S = "${WORKDIR}/examples-release-release-crystal-examples_rclpy_minimal_client-0.6.2-0"
 
-inherit catkin
+inherit ament

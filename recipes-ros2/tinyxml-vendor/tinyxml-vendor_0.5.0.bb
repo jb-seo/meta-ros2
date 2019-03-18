@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "942018b7d34e3179842b23007f98fddc"
 SRC_URI[sha256sum] = "ad189cbcce4e0a7187d9dc7bc1fea531fb2cfa4e68ffb506556ddfcd65d79c08"
 S = "${WORKDIR}/tinyxml_vendor-release-release-crystal-tinyxml_vendor-0.5.0-0"
 
-inherit catkin
+inherit ament

@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "86206b25fe018f1952cdf765d09732ef"
 SRC_URI[sha256sum] = "f670a11cca4cf323c27c007c363ae1cdedcab5b04894fe9fb427075855c25854"
 S = "${WORKDIR}/googletest-release-release-crystal-gtest_vendor-1.8.0-0"
 
-inherit catkin
+inherit ament

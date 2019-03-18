@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "328dcc3560d8525766af8f4b6b847597"
 SRC_URI[sha256sum] = "81e48bbd06ea2658b572efa9e854fb233b6e02f7559ef0ab27ff7d93da0a8e1b"
 S = "${WORKDIR}/poco_vendor-release-release-crystal-poco_vendor-1.1.1-0"
 
-inherit catkin
+inherit ament

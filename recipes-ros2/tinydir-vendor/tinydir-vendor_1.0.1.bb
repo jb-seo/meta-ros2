@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "0f9643959559fdc511f4d6bc3f002ec9"
 SRC_URI[sha256sum] = "993a5b8000c90a3284ca05971c79f13f7e71fa2b92e02f865d8d730b9ceaafd3"
 S = "${WORKDIR}/tinydir_vendor-release-release-crystal-tinydir_vendor-1.0.1-0"
 
-inherit catkin
+inherit ament

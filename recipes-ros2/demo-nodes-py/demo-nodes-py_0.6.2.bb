@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "e4537146c015c133b91496df61fdd197"
 SRC_URI[sha256sum] = "cc1e237a66ebe61ff40c27723c53672c42ebc6afc8f292e422d648b60c394af5"
 S = "${WORKDIR}/demos-release-release-crystal-demo_nodes_py-0.6.2-0"
 
-inherit catkin
+inherit ament

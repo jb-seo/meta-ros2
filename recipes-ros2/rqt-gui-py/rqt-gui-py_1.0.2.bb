@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "621d1fdb8e9b352a3c01f244e3cc80cd"
 SRC_URI[sha256sum] = "88e7fbe247e2a45351e3c8a7e882b302a3c7a7a6766a191be34edf2ef1d639bb"
 S = "${WORKDIR}/rqt-release-release-crystal-rqt_gui_py-1.0.2-0"
 
-inherit catkin
+inherit ament

@@ -3,7 +3,6 @@
 #        Yet in practice all ament-based packages have to depend explicitly on the native
 #        ament-cmake-* packages.
 DEPENDS_append = " \
-    ament-tools-native \
     ament-cmake-native \
     ament-cmake-export-definitions-native \
     ament-cmake-export-dependencies-native \
@@ -20,8 +19,8 @@ DEPENDS_append = " \
 "
 
 ROS_BPN ?= "${@d.getVar('BPN', True).replace('-', '_')}"
-
-S = "${WORKDIR}/git/${ROS_BPN}"
+ROS_SPN ?= "${ROS_BPN}"
+ROS_SP = "${ROS_SPN}-${PV}"
 
 EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-${TUNE_ARCH}-${TARGET_OS}${ARMPKGSFX_EABI}"
 export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${prefix}"
@@ -44,14 +43,18 @@ do_install_append() {
 
 FILES_${PN} = " \
     ${datadir}/${ROS_BPN}/package.xml \
+    ${datadir}/${ROS_BPN}/config/* \
     ${datadir}/${ROS_BPN}/resource/* \
+    ${datadir}/${ROS_BPN}/action/* \
     ${datadir}/${ROS_BPN}/msg/* \
     ${datadir}/${ROS_BPN}/srv/* \
     ${datadir}/${ROS_BPN}/launch/* \
+    ${datadir}/${ROS_BPN}/*.yaml \
+    ${datadir}/${ROS_BPN}/LICENSE \
     ${datadir}/ament_index/* \
     ${libdir}/${PYTHON_DIR}/* \
     ${libdir}/${ROS_BPN}/* \
-    ${libdir}/lib*.so \
+    ${libdir}/lib*.so* \
 "
 
 FILES_${PN}-dev = " \

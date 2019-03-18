@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "d3837740a2bb1af3ff1e6c94e99c1e03"
 SRC_URI[sha256sum] = "5a98f8f75ece2380b33e4ba7477ff99b3a5cf6916a5c7f12ff9e68a6a4723d19"
 S = "${WORKDIR}/ros2cli-release-release-crystal-${PN}-0.6.3-0"
 
-inherit catkin
+inherit ros-bpn setuptools3

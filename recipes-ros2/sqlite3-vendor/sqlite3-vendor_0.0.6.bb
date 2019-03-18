@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "6390215f8bc02588bb1b268adc0bf91e"
 SRC_URI[sha256sum] = "57e058ff6dece26f6fa45e0c22e4ac1b8cd8e6e0a9ef5844e81057381a7af2bb"
 S = "${WORKDIR}/rosbag2-release-release-crystal-sqlite3_vendor-0.0.6-0"
 
-inherit catkin
+inherit ament

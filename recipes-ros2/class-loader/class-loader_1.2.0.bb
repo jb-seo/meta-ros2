@@ -8,11 +8,11 @@ ROSDISTRO = "crystal"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-DEPENDS = "ament-cmake console-bridge-vendor console-bridge poco poco-vendor"
+DEPENDS = " console-bridge-vendor console-bridge poco poco-vendor"
 SRC_URI = "https://github.com/ros2-gbp/class_loader-release/archive/release/crystal/class_loader/1.2.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "2d81eaf9b56664f55879326a49abc954"
 SRC_URI[sha256sum] = "eb449f54bbf1fe37e38580e83446b523eb5891f4e187acd4fbce4ec3033c0c56"
 S = "${WORKDIR}/class_loader-release-release-crystal-class_loader-1.2.0-0"
 
-inherit catkin
+inherit ament

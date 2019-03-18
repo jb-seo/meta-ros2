@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "716f35c08e31dc56e14f93e237c2f676"
 SRC_URI[sha256sum] = "853939b29d8c0e8889459cd6bb22fdd69cba853bfaf2099bd4ae5a1b18ba235b"
 S = "${WORKDIR}/osrf_testings_tools_cpp-release-release-crystal-osrf_testing_tools_cpp-1.1.0-0"
 
-inherit catkin
+inherit ament

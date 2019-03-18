@@ -8,11 +8,11 @@ ROSDISTRO = "crystal"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=ced11b5ec2a0776fd01740115328457b"
 
-DEPENDS = "ament-cmake python3-qt5-bindings qtbase5-dev"
+DEPENDS = " python3-qt5-bindings qtbase5-dev"
 SRC_URI = "https://github.com/ros2-gbp/python_qt_binding-release/archive/release/crystal/python_qt_binding/1.0.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "45ea8b8124e31c966277b729b949c7ff"
 SRC_URI[sha256sum] = "fdf6f093e4849aba0695f6fa8c9bbe628d7da9b9745f7274b0fcc5e004cd0b08"
 S = "${WORKDIR}/python_qt_binding-release-release-crystal-python_qt_binding-1.0.1-0"
 
-inherit catkin
+inherit ament

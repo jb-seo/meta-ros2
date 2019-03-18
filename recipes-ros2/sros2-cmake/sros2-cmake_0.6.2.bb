@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "660aea580d98d92c26f83bcda775ddf0"
 SRC_URI[sha256sum] = "bcb14d26acd9a9f0c377b5de1f54232a122bb4d690a7965c2fc18884029d8e82"
 S = "${WORKDIR}/sros2-release-release-crystal-sros2_cmake-0.6.2-0"
 
-inherit catkin
+inherit ament

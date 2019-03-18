@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "2212adcbe8dc2bd33d0d2441afd36759"
 SRC_URI[sha256sum] = "d6d9718074ce0450da38fe8e03037ace1c7cf0fe765e5ec42bdda1d15ff45022"
 S = "${WORKDIR}/py_trees-release-release-crystal-py_trees-1.0.0-0"
 
-inherit catkin
+inherit ament

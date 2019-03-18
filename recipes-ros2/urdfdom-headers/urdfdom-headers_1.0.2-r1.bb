@@ -15,4 +15,4 @@ SRC_URI[md5sum] = "25c60fc2b4c9d18021bc0cdebba8bfa5"
 SRC_URI[sha256sum] = "57ca69ecd0c2de926bc758d5f7a32dce4cd2ebc7f902c69b22ee34f9647e62fa"
 S = "${WORKDIR}/urdfdom_headers-release-release-crystal-urdfdom_headers-1.0.2-1"
 
-inherit catkin
+inherit ament

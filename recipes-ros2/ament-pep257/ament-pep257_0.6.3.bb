@@ -15,4 +15,5 @@ SRC_URI[md5sum] = "749fae89e4083351fb0807aef8d2a8d6"
 SRC_URI[sha256sum] = "62090dc71e619892fee461bba1d00289bd1a6d52e5f3cf18219ec780e37fa752"
 S = "${WORKDIR}/ament_lint-release-release-crystal-ament_pep257-0.6.3-0"
 
-inherit catkin
+BBCLASSEXTEND += "native"
+inherit ros-bpn cmake python3native
