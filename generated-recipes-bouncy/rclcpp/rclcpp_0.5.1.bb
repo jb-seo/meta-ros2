@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gmock-native ament-cmake-gtest-native ament-lint-auto-native ament-lint-common-native rmw-native rmw-implementation-cmake-native test-msgs-native"
+ROS_TEST_DEPENDS = "ament-cmake-gmock ament-cmake-gtest ament-lint-auto ament-lint-common rmw rmw-implementation-cmake test-msgs"
 
 SRC_URI = "https://github.com/ros2-gbp/${PN}-release/archive/release/bouncy/${PN}/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "153208adb856975cd84997f9f5c33cae"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/rclcpp-common-${PV}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

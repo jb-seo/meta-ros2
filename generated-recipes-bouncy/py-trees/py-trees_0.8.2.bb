@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = ""
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "python3-nose-native python3-nose-yanc"
+ROS_TEST_DEPENDS = "python3-nose python3-nose-yanc-native"
 
 SRC_URI = "https://github.com/stonier/py_trees-release/archive/release/bouncy/py_trees/0.8.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "b6e10142e484b76991841e87711a968b"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees/py-trees-common-${PV}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

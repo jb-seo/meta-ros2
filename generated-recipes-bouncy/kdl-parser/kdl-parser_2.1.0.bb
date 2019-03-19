@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto-native ament-lint-common-native"
+ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
 
 SRC_URI = "https://github.com/ros2-gbp/kdl_parser-release/archive/release/bouncy/kdl_parser/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "7debb050459ae71277df4f4e3db5a4ea"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/kdl-parser-common-${PV}.i
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

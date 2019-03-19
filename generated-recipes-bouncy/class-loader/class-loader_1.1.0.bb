@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest-native ament-lint-auto-native ament-lint-common-native"
+ROS_TEST_DEPENDS = "ament-cmake-gtest ament-lint-auto ament-lint-common"
 
 SRC_URI = "https://github.com/ros2-gbp/class_loader-release/archive/release/bouncy/class_loader/1.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "cff2b04ef68a5ab0697b4e686abfb6d9"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/class-loader/class-loader-common-${P
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/class-loader/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/class-loader/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

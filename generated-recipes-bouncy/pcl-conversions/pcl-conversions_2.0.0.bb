@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest-native"
+ROS_TEST_DEPENDS = "ament-cmake-gtest"
 
 SRC_URI = "https://github.com/ros2-gbp/pcl_conversions-release/archive/release/bouncy/pcl_conversions/2.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "8331fc6c5f2f04637a4efcc90f262543"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/pcl-conversions-comm
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

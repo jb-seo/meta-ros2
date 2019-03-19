@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = ""
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "python-flake8-native python3-pytest-native"
+ROS_TEST_DEPENDS = "python-flake8 python3-pytest"
 
 SRC_URI = "https://github.com/ros2-gbp/ament_package-release/archive/release/bouncy/ament_package/0.5.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "75e98209706f6eed8bbb449c3e3194d1"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/ament-package-common-$
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

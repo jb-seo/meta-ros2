@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/fastcdr/fastcdr-common-${PV}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/fastcdr/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/fastcdr/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

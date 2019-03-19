@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = ""
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-copyright-native ament-flake8-native ament-pep257-native"
+ROS_TEST_DEPENDS = "ament-copyright ament-flake8 ament-pep257"
 
 SRC_URI = "https://github.com/ros2-gbp/teleop_twist_keyboard-release/archive/release/bouncy/teleop_twist_keyboard/2.1.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "bf475e8962865b0f6c1648d7a56170ff"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/teleop-twist-k
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-native ament-index-python-native rosidl-cma
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-pytest-native ament-lint-auto-native ament-lint-common-native demo-nodes-cpp-native diagnostic-msgs-native launch-native ros2run-native"
+ROS_TEST_DEPENDS = "ament-cmake-pytest ament-lint-auto ament-lint-common demo-nodes-cpp diagnostic-msgs launch ros2run"
 
 SRC_URI = "https://github.com/ros2-gbp/ros1_bridge-release/archive/release/bouncy/ros1_bridge/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "533535bf72d793546b7e6b224b638d51"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros1-bridge/ros1-bridge-common-${PV}
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros1-bridge/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros1-bridge/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 

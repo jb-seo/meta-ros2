@@ -17,7 +17,7 @@ ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-common-native"
+ROS_TEST_DEPENDS = "ament-lint-common"
 
 SRC_URI = "https://github.com/stonier/py_trees_msgs-release/archive/release/bouncy/py_trees_msgs/0.4.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "43ae1cd504417fc2dddc134b50cdb84a"
@@ -34,6 +34,6 @@ include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/py-trees-msgs-common-$
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/${BPN}-${PV}.inc
 
-inherit ros_bouncy
+inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}
 
