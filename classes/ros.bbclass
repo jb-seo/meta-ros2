@@ -78,3 +78,9 @@ ros_sysroot_preprocess () {
         sysroot_stage_dir ${D}${ros_stacksdir} ${SYSROOT_DESTDIR}${ros_stacksdir}
     fi
 }
+
+# remove non-free rmw implementation libs
+DEPENDS_remove = "libopensplice67 libopensplice69 rti-connext-dds-5.3.1"
+
+# Additional cmake config to fix build
+EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DINSTALL_EXAMPLES=OFF"
