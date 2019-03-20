@@ -47,7 +47,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rcl/rcl_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rcl/rcl_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl/rcl-yaml-param-parser-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl/rcl-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl/${BPN}-${PV}.inc
 

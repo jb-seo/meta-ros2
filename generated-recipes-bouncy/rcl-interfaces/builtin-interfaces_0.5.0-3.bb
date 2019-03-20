@@ -40,7 +40,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rcl-interfaces/rcl-interfaces_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rcl-interfaces/rcl-interfaces_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl-interfaces/builtin-interfaces-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl-interfaces/rcl-interfaces-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl-interfaces/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rcl-interfaces/${BPN}-${PV}.inc
 

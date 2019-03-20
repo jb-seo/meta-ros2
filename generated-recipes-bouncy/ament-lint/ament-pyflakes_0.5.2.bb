@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/ament-lint/ament-lint_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/ament-lint/ament-lint_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/ament-pyflakes-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/ament-lint-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/${BPN}-${PV}.inc
 

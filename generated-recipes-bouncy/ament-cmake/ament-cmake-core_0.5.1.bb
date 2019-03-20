@@ -17,7 +17,7 @@ DEPENDS = "${ROS_BUILD_DEPENDS}"
 ROS_BUILDTOOL_DEPENDS = " \
     ament-package-native \
     cmake-native \
-    -native \
+    python3-catkin-pkg-modules-native \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/ament-cmake/ament-cmake_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/ament-cmake/ament-cmake_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-cmake/ament-cmake-core-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-cmake/ament-cmake-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-cmake/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-cmake/${BPN}-${PV}.inc
 

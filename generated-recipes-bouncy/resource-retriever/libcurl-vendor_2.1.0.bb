@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/resource-retriever/resource-retriever_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/resource-retriever/resource-retriever_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/libcurl-vendor-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/resource-retriever-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}-${PV}.inc
 

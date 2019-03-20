@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/examples/examples_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/examples/examples_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-rclcpp-minimal-timer-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}-${PV}.inc
 

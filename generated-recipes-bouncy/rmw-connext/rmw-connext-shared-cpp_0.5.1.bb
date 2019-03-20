@@ -44,7 +44,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rmw-connext/rmw-connext_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rmw-connext/rmw-connext_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/rmw-connext-shared-cpp-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/rmw-connext-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/${BPN}-${PV}.inc
 

@@ -42,7 +42,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/ros2cli/ros2cli_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/ros2cli/ros2cli_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2node-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2cli-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}-${PV}.inc
 

@@ -59,7 +59,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/ecl-core/ecl-core_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/ecl-core/ecl-core_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-containers-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-core-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}-${PV}.inc
 

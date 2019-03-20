@@ -50,7 +50,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/turtlebot2-demo/turtlebot2-demo_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/turtlebot2-demo/turtlebot2-demo_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/turtlebot2-amcl-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/turtlebot2-demo-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/${BPN}-${PV}.inc
 

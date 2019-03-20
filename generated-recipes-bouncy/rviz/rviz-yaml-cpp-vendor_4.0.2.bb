@@ -37,7 +37,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-yaml-cpp-vendor-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}-${PV}.inc
 

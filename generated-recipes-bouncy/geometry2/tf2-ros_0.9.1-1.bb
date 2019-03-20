@@ -47,7 +47,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/geometry2/geometry2_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/geometry2/geometry2_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/tf2-ros-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/geometry2-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}-${PV}.inc
 

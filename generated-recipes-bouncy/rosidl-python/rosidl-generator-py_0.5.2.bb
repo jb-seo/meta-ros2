@@ -55,7 +55,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rosidl-python/rosidl-python_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rosidl-python/rosidl-python_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/rosidl-generator-py-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/rosidl-python-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/${BPN}-${PV}.inc
 

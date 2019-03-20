@@ -37,7 +37,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/uncrustify/uncrustify_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/uncrustify/uncrustify_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/uncrustify-vendor-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/uncrustify-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

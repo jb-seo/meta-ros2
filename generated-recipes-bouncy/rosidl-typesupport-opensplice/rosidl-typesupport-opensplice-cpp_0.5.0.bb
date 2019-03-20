@@ -46,7 +46,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rosidl-typesupport-opensplice/rosidl-typesupport-opensplice_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rosidl-typesupport-opensplice/rosidl-typesupport-opensplice_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport-opensplice/rosidl-typesupport-opensplice-cpp-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport-opensplice/rosidl-typesupport-opensplice-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport-opensplice/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport-opensplice/${BPN}-${PV}.inc
 

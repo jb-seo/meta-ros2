@@ -50,7 +50,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/launch/launch_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/launch/launch_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/ros2launch-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/launch-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/${BPN}-${PV}.inc
 

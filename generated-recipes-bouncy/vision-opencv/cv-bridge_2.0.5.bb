@@ -52,7 +52,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/vision-opencv/vision-opencv_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/vision-opencv/vision-opencv_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/cv-bridge-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/vision-opencv-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/${BPN}-${PV}.inc
 

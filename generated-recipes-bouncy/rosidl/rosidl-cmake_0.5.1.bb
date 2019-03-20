@@ -41,7 +41,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rosidl/rosidl_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rosidl/rosidl_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/rosidl-cmake-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/rosidl-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/${BPN}-${PV}.inc
 

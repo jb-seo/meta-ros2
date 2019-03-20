@@ -54,7 +54,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rclcpp/rclcpp_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rclcpp/rclcpp_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/rclcpp-lifecycle-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/rclcpp-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}-${PV}.inc
 

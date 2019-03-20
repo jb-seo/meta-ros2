@@ -45,7 +45,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/cartographer-ros/cartographer-ros_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/cartographer-ros/cartographer-ros_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/cartographer-ros/cartographer-ros-msgs-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/cartographer-ros/cartographer-ros-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/cartographer-ros/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/cartographer-ros/${BPN}-${PV}.inc
 

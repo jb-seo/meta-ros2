@@ -44,7 +44,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/demos/demos_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/demos/demos_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/topic-monitor-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/demos-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}-${PV}.inc
 

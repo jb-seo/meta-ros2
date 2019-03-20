@@ -41,7 +41,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/joystick-drivers/joystick-drivers_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/joystick-drivers/joystick-drivers_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/joy-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/joystick-drivers-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rosidl-defaults/rosidl-defaults_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rosidl-defaults/rosidl-defaults_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-defaults/rosidl-default-generators-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-defaults/rosidl-defaults-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-defaults/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-defaults/${BPN}-${PV}.inc
 

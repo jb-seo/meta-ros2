@@ -42,7 +42,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/common-interfaces/common-interfaces_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/common-interfaces/common-interfaces_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/shape-msgs-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/common-interfaces-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/${BPN}-${PV}.inc
 

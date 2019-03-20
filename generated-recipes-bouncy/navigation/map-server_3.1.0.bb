@@ -56,7 +56,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/navigation/navigation_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/navigation/navigation_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/map-server-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/navigation-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}-${PV}.inc
 

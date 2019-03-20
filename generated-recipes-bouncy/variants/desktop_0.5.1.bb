@@ -73,7 +73,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/variants/variants_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/variants/variants_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/desktop-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/variants-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}-${PV}.inc
 

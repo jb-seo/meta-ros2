@@ -51,7 +51,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rosidl-typesupport/rosidl-typesupport_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rosidl-typesupport/rosidl-typesupport_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/rosidl-typesupport-cpp-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/rosidl-typesupport-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/${BPN}-${PV}.inc
 

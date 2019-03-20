@@ -39,7 +39,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/rmw/rmw_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/rmw/rmw_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw/rmw-implementation-cmake-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw/rmw-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw/${BPN}-${PV}.inc
 

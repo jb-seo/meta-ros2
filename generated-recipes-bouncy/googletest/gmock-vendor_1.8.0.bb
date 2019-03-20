@@ -38,7 +38,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/googletest/googletest_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/googletest/googletest_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/googletest/gmock-vendor-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/googletest/googletest-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/googletest/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/googletest/${BPN}-${PV}.inc
 

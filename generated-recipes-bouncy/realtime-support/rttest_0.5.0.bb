@@ -40,7 +40,7 @@ ROS_RECIPES_TREE = "recipes-ros2"
 # Allow the above settings to be overridden.
 include ${ROS_LAYERDIR}/recipes-ros/realtime-support/realtime-support_common.inc
 include ${ROS_LAYERDIR}/recipes-ros2/realtime-support/realtime-support_common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/realtime-support/rttest-${PV}_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/realtime-support/realtime-support-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/realtime-support/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/realtime-support/${BPN}-${PV}.inc
 
