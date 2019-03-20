@@ -1,1 +1,7 @@
 BBCLASSEXTEND = "native"
+
+FILES_${PN}-examples = " \
+    ${prefix}/examples \
+"
+
+PACKAGES_prepend = "${PN}-examples "
