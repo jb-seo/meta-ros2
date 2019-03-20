@@ -8,7 +8,7 @@ ROSDISTRO = "bouncy"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-DEPENDS = "libyaml-vendor rcl rcutils libyaml"
+DEPENDS = "libyaml rcl rcutils libyaml"
 SRC_URI = "https://github.com/ros2-gbp/rcl-release/archive/release/bouncy/rcl_yaml_param_parser/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "8715b6b23751872a900cefc276af9632"

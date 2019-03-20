@@ -18,6 +18,5 @@ S = "${WORKDIR}/ament_cmake-release-release-bouncy-ament_cmake_export_interfaces
 
 inherit ros
 inherit cmake python3native
-inherit pythonpath-insane
 
 BBCLASSEXTEND += "native"

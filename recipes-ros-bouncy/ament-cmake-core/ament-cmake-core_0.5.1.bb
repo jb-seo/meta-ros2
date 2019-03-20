@@ -8,7 +8,7 @@ ROSDISTRO = "bouncy"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-DEPENDS = "ament-package cmake python3-catkin-pkg-native"
+DEPENDS = "ament-package cmake python3-catkin-pkg"
 SRC_URI = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/bouncy/ament_cmake_core/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "04590e6ac4a192e4a94daf16c731ff6b"

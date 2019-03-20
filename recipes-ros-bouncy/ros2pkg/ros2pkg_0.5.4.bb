@@ -8,7 +8,7 @@ ROSDISTRO = "bouncy"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-DEPENDS = "ros2cli python3-catkin-pkg-native python3-empy-native python3-pkg-resources"
+DEPENDS = "ros2cli python3-catkin-pkg python3-empy python3-pkg-resources"
 SRC_URI = "https://github.com/ros2-gbp/ros2cli-release/archive/release/bouncy/${PN}/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "02315a1493e40099971ad95203bd041d"

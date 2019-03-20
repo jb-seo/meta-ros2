@@ -18,4 +18,4 @@ S = "${WORKDIR}/${PN}-release-release-bouncy-${PN}-0.5.1-0"
 
 inherit ros
 inherit ament
-
+inherit pythonpath-insane

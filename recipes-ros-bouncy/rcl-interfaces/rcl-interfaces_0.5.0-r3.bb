@@ -19,4 +19,3 @@ S = "${WORKDIR}/rcl_interfaces-release-release-bouncy-rcl_interfaces-0.5.0-3"
 inherit ros
 inherit ament
 inherit pythonpath-insane
-

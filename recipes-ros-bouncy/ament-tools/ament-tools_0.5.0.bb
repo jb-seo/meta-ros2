@@ -8,7 +8,7 @@ ROSDISTRO = "bouncy"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-DEPENDS = "ament-package osrf-pycommon python3-catkin-pkg-native"
+DEPENDS = "ament-package osrf-pycommon python3-catkin-pkg"
 SRC_URI = "https://github.com/ros2-gbp/ament_tools-release/archive/release/bouncy/ament_tools/0.5.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 
 SRC_URI[md5sum] = "8d630b31df9c9f94ba3133112714a350"

@@ -19,4 +19,3 @@ S = "${WORKDIR}/example_interfaces-release-release-bouncy-example_interfaces-0.5
 inherit ros
 inherit ament
 inherit pythonpath-insane
-
