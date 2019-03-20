@@ -10,14 +10,39 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rmw rmw-implementation rmw-implementation-cmake rosidl-generator-c rosidl-parser"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    rosidl-generator-c \
+    rosidl-parser \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-pytest ament-index-python ament-lint-auto ament-lint-common python-cmake-module rmw rmw-implementation rmw-implementation-cmake rosidl-cmake rosidl-generator-c rosidl-parser rosidl-typesupport-c python3-pytest"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-pytest \
+    ament-index-python \
+    ament-lint-auto \
+    ament-lint-common \
+    python3-pytest \
+    python-cmake-module \
+    rmw \
+    rmw-implementation \
+    rmw-implementation-cmake \
+    rosidl-cmake \
+    rosidl-generator-c \
+    rosidl-parser \
+    rosidl-typesupport-c \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rosidl_python-release/archive/release/bouncy/rosidl_generator_py/0.5.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "2e074a1c86d2f4d56f210a464acfabcb"
@@ -28,9 +53,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rosidl-python/rosidl-python-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rosidl-python/rosidl-python-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/rosidl-generator-py-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rosidl-python/rosidl-python_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rosidl-python/rosidl-python_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/rosidl-generator-py-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-python/${BPN}-${PV}.inc
 

@@ -10,14 +10,59 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "geometry-msgs laser-geometry map-msgs nav-msgs pluginlib rclcpp resource-retriever rviz-common rviz-rendering tinyxml-vendor urdf visualization-msgs qtbase qtbase qtbase qtbase qtbase"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    laser-geometry \
+    map-msgs \
+    nav-msgs \
+    pluginlib \
+    qtbase \
+    rclcpp \
+    resource-retriever \
+    rviz-common \
+    rviz-rendering \
+    tinyxml-vendor \
+    urdf \
+    visualization-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    laser-geometry \
+    qtbase \
+    qtbase \
+    qtbase \
+    qtbase \
+    map-msgs \
+    nav-msgs \
+    pluginlib \
+    rclcpp \
+    resource-retriever \
+    rviz-common \
+    rviz-rendering \
+    tinyxml-vendor \
+    urdf \
+    visualization-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gmock ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify ament-index-cpp rviz-rendering-tests rviz-visual-testing-framework"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+    ament-index-cpp \
+    rviz-rendering-tests \
+    rviz-visual-testing-framework \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rviz-release/archive/release/bouncy/rviz_default_plugins/4.0.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "be021042fa8ae44bab28859b8e612923"
@@ -28,9 +73,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-default-plugins-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-default-plugins-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}-${PV}.inc
 

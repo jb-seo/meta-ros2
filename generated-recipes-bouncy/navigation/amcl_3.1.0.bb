@@ -10,27 +10,56 @@ SECTION = "devel"
 LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=22;endline=22;md5=58d727014cda5ed405b7fb52666a1f97"
 
-ROS_BUILD_DEPENDS = "geometry-msgs nav-msgs rclcpp rcutils sensor-msgs std-srvs tf2 tf2-geometry-msgs tf2-msgs tf2-ros"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    rcutils \
+    sensor-msgs \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-msgs \
+    tf2-ros \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-auto-native ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-auto-native \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "map-server"
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    rcutils \
+    sensor-msgs \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-msgs \
+    tf2-ros \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/navigation-release/archive/release/bouncy/${PN}/3.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+    map-server \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/navigation-release/archive/release/bouncy/amcl/3.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "bc7da83f0ff07046283a8cd18f43295a"
 SRC_URI[sha256sum] = "d51f060b28a6f705570ad7c5a97944ee03365274d75d888e4e08b7f3e8959a94"
-S = "${WORKDIR}/navigation-release-release-bouncy-${PN}-3.1.0-0"
+S = "${WORKDIR}/navigation-release-release-bouncy-amcl-3.1.0-0"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/navigation/navigation-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/navigation/navigation-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/amcl-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/navigation/navigation_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/navigation/navigation_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/amcl-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}-${PV}.inc
 

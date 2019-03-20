@@ -10,14 +10,27 @@ SECTION = "devel"
 LICENSE = "Apache-2.0 & Boost-1.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=401a7342a877608092ef332b6948eb03"
 
-ROS_BUILD_DEPENDS = "poco libpcre zlib"
+ROS_BUILD_DEPENDS = " \
+    poco \
+    libpcre \
+    zlib \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    poco \
+    libpcre \
+    zlib \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/poco_vendor-release/archive/release/bouncy/poco_vendor/1.1.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "9bfd9524341e48ab4e97f5f83d76b778"
@@ -28,11 +41,9 @@ ROS_BUILD_TYPE = "cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/poco-vendor/poco-vendor-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/poco-vendor/poco-vendor-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/poco-vendor/poco-vendor-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/poco-vendor/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/poco-vendor/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/poco-vendor/poco-vendor_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/poco-vendor/poco-vendor_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/poco-vendor/poco-vendor-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

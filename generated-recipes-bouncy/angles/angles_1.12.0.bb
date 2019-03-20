@@ -10,29 +10,34 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+RDEPENDS_${PN} = " \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/${PN}-release/archive/release/bouncy/${PN}/1.12.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/angles-release/archive/release/bouncy/angles/1.12.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "eb61f40709c3e2ef48bb5bb6fa87cda8"
 SRC_URI[sha256sum] = "e203ac9e43ab4dc1c9ac8537e84e4251c254e9fd3533b91d262fac68dc9aeb1a"
-S = "${WORKDIR}/${PN}-release-release-bouncy-${PN}-1.12.0-0"
+S = "${WORKDIR}/angles-release-release-bouncy-angles-1.12.0-0"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/angles/angles-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/angles/angles-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/angles/angles-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/angles/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/angles/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/angles/angles_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/angles/angles_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/angles/angles-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

@@ -10,14 +10,23 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ecl-license"
+ROS_BUILD_DEPENDS = " \
+    ecl-license \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ecl-license \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/yujinrobot-release/ecl_tools-release/archive/release/bouncy/ecl_build/1.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "96eadc2c139c7362c410f8004f0f73e8"
@@ -28,9 +37,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ecl-tools/ecl-tools-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ecl-tools/ecl-tools-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-tools/ecl-build-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ecl-tools/ecl-tools_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ecl-tools/ecl-tools_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-tools/ecl-build-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-tools/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-tools/${BPN}-${PV}.inc
 

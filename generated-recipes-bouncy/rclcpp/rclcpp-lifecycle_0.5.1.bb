@@ -10,14 +10,38 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "lifecycle-msgs rcl-lifecycle rclcpp rclpy rmw-implementation rosidl-default-generators rosidl-default-runtime std-msgs"
+ROS_BUILD_DEPENDS = " \
+    lifecycle-msgs \
+    rcl-lifecycle \
+    rclcpp \
+    rmw-implementation \
+    rosidl-default-generators \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native rosidl-default-generators-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+    rosidl-default-generators-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    lifecycle-msgs \
+    rcl-lifecycle \
+    rclcpp \
+    rclpy \
+    rmw-implementation \
+    rosidl-default-runtime \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rclcpp-release/archive/release/bouncy/rclcpp_lifecycle/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "bb3acf3175f4ecc57bdc180892b7ab8e"
@@ -28,9 +52,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rclcpp/rclcpp-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rclcpp/rclcpp-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/rclcpp-lifecycle-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rclcpp/rclcpp_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rclcpp/rclcpp_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/rclcpp-lifecycle-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclcpp/${BPN}-${PV}.inc
 

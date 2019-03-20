@@ -10,14 +10,57 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ecl-build ecl-command-line ecl-config ecl-containers ecl-converters ecl-devices ecl-errors ecl-exceptions ecl-formatters ecl-geometry ecl-ipc ecl-license ecl-linear-algebra ecl-sigslots ecl-streams ecl-threads ecl-time-lite ecl-type-traits"
+ROS_BUILD_DEPENDS = " \
+    ecl-build \
+    ecl-command-line \
+    ecl-config \
+    ecl-containers \
+    ecl-converters \
+    ecl-devices \
+    ecl-errors \
+    ecl-exceptions \
+    ecl-formatters \
+    ecl-geometry \
+    ecl-ipc \
+    ecl-license \
+    ecl-linear-algebra \
+    ecl-sigslots \
+    ecl-streams \
+    ecl-threads \
+    ecl-time-lite \
+    ecl-type-traits \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ecl-build \
+    ecl-command-line \
+    ecl-config \
+    ecl-containers \
+    ecl-converters \
+    ecl-devices \
+    ecl-errors \
+    ecl-exceptions \
+    ecl-formatters \
+    ecl-geometry \
+    ecl-ipc \
+    ecl-license \
+    ecl-linear-algebra \
+    ecl-sigslots \
+    ecl-streams \
+    ecl-threads \
+    ecl-time-lite \
+    ecl-type-traits \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/yujinrobot-release/ecl_core-release/archive/release/bouncy/ecl_core_apps/1.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "6323c781115062988d2f27a5c2618abc"
@@ -28,9 +71,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ecl-core/ecl-core-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ecl-core/ecl-core-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-core-apps-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ecl-core/ecl-core_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ecl-core/ecl-core_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-core-apps-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}-${PV}.inc
 

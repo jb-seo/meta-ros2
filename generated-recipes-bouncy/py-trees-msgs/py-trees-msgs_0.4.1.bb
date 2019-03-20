@@ -10,14 +10,26 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "rosidl-default-generators rosidl-default-runtime std-msgs"
+ROS_BUILD_DEPENDS = " \
+    rosidl-default-generators \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    rosidl-default-runtime \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/stonier/py_trees_msgs-release/archive/release/bouncy/py_trees_msgs/0.4.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "43ae1cd504417fc2dddc134b50cdb84a"
@@ -28,11 +40,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/py-trees-msgs/py-trees-msgs-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/py-trees-msgs/py-trees-msgs-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/py-trees-msgs-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/py-trees-msgs/py-trees-msgs_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/py-trees-msgs/py-trees-msgs_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/py-trees-msgs/py-trees-msgs-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

@@ -10,27 +10,43 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "lifecycle-msgs rclcpp-lifecycle ros2run std-msgs"
+ROS_BUILD_DEPENDS = " \
+    lifecycle-msgs \
+    rclcpp-lifecycle \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+RDEPENDS_${PN} = " \
+    lifecycle-msgs \
+    rclcpp-lifecycle \
+    ros2run \
+    std-msgs \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/demos-release/archive/release/bouncy/${PN}/0.5.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/demos-release/archive/release/bouncy/lifecycle/0.5.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "02b781997f64f0d45c42a04a5431e718"
 SRC_URI[sha256sum] = "6332f447f3f3cb92e0acec1003880711f6f3d60dce930caae161ef1785224ea6"
-S = "${WORKDIR}/demos-release-release-bouncy-${PN}-0.5.1-1"
+S = "${WORKDIR}/demos-release-release-bouncy-lifecycle-0.5.1-1"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/demos/demos-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/demos/demos-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/lifecycle-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/demos/demos_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/demos/demos_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/lifecycle-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}-${PV}.inc
 

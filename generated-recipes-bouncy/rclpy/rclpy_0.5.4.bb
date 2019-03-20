@@ -10,29 +10,48 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "ament-index-python rcl rcutils rmw-implementation rmw-implementation-cmake"
+ROS_BUILD_DEPENDS = " \
+    rcl \
+    rcutils \
+    rmw-implementation \
+    rmw-implementation-cmake \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native python-cmake-module-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    python-cmake-module-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-pytest ament-lint-auto ament-lint-common rcl-interfaces rosidl-generator-py test-msgs"
+RDEPENDS_${PN} = " \
+    ament-index-python \
+    rcl \
+    rmw-implementation \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/${PN}-release/archive/release/bouncy/${PN}/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+    ament-cmake-pytest \
+    ament-lint-auto \
+    ament-lint-common \
+    rcl-interfaces \
+    rosidl-generator-py \
+    test-msgs \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/rclpy-release/archive/release/bouncy/rclpy/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "fc0f7b3f142f60df9e7067c384fc2bfa"
 SRC_URI[sha256sum] = "7490e1537fb30ba4fc0a0b0b506de11bea02556a0bb9567fd5fb5f2c1dc2f16f"
-S = "${WORKDIR}/${PN}-release-release-bouncy-${PN}-0.5.4-0"
+S = "${WORKDIR}/rclpy-release-release-bouncy-rclpy-0.5.4-0"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rclpy/rclpy-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rclpy/rclpy-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclpy/rclpy-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclpy/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclpy/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rclpy/rclpy_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rclpy/rclpy_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rclpy/rclpy-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

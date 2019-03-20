@@ -10,14 +10,35 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rclcpp sensor-msgs std-msgs opencv"
+ROS_BUILD_DEPENDS = " \
+    opencv \
+    rclcpp \
+    sensor-msgs \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    opencv \
+    rclcpp \
+    sensor-msgs \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-pytest ament-lint-auto ament-lint-common launch launch-testing rmw-implementation-cmake"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-pytest \
+    ament-lint-auto \
+    ament-lint-common \
+    launch \
+    launch-testing \
+    rmw-implementation-cmake \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/demos-release/archive/release/bouncy/image_tools/0.5.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "2092a4d266bea69e99114b0783076f9c"
@@ -28,9 +49,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/demos/demos-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/demos/demos-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/image-tools-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/demos/demos_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/demos/demos_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/image-tools-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/demos/${BPN}-${PV}.inc
 

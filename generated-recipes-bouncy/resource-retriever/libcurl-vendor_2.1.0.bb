@@ -10,14 +10,23 @@ SECTION = "devel"
 LICENSE = "Apache-2.0 & MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=f12ef8c0445c08084ae92cf2dcb7ee92"
 
-ROS_BUILD_DEPENDS = "curl"
+ROS_BUILD_DEPENDS = " \
+    curl \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    curl \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/resource_retriever-release/archive/release/bouncy/libcurl_vendor/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "e1c43763c78c1d471f061243137207a2"
@@ -28,9 +37,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/resource-retriever/resource-retriever-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/resource-retriever/resource-retriever-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/libcurl-vendor-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/resource-retriever/resource-retriever_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/resource-retriever/resource-retriever_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/libcurl-vendor-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}-${PV}.inc
 

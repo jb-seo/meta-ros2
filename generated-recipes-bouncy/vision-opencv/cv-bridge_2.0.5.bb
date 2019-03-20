@@ -10,14 +10,36 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ament-index-python sensor-msgs boost opencv python3-numpy"
+ROS_BUILD_DEPENDS = " \
+    boost \
+    opencv \
+    python3-numpy \
+    sensor-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native python-cmake-module-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+    python-cmake-module-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ament-index-python \
+    boost \
+    opencv \
+    python3-numpy \
+    sensor-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest ament-cmake-pytest ament-lint-auto ament-lint-common python3-opencv-native"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-cmake-pytest \
+    ament-lint-auto \
+    ament-lint-common \
+    python3-opencv \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/vision_opencv-release/archive/release/bouncy/cv_bridge/2.0.5-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "3367ac0b470d8625a70fa17201f6ded2"
@@ -28,9 +50,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/vision-opencv/vision-opencv-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/vision-opencv/vision-opencv-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/cv-bridge-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/vision-opencv/vision-opencv_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/vision-opencv/vision-opencv_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/cv-bridge-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/vision-opencv/${BPN}-${PV}.inc
 

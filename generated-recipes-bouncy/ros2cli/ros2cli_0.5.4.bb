@@ -10,27 +10,39 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rclpy python3-pkg-resources-native"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-copyright ament-flake8 ament-pep257 python3-pytest"
+RDEPENDS_${PN} = " \
+    python3-pkg-resources \
+    rclpy \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/${PN}-release/archive/release/bouncy/${PN}/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    python3-pytest \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/ros2cli-release/archive/release/bouncy/ros2cli/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "6ec27b17b1e5c33f5da30b35d10479e4"
 SRC_URI[sha256sum] = "3f4601d28696c988af575f471e11836ecc216a6f461e584d11517ec47934e44e"
-S = "${WORKDIR}/${PN}-release-release-bouncy-${PN}-0.5.4-0"
+S = "${WORKDIR}/ros2cli-release-release-bouncy-ros2cli-0.5.4-0"
 
 ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ros2cli/ros2cli-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ros2cli/ros2cli-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2cli-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ros2cli/ros2cli_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ros2cli/ros2cli_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2cli-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}-${PV}.inc
 

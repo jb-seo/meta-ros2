@@ -10,14 +10,33 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "actionlib-msgs builtin-interfaces diagnostic-msgs geometry-msgs nav-msgs sensor-msgs shape-msgs std-msgs std-srvs stereo-msgs trajectory-msgs visualization-msgs"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    actionlib-msgs \
+    builtin-interfaces \
+    diagnostic-msgs \
+    geometry-msgs \
+    nav-msgs \
+    sensor-msgs \
+    shape-msgs \
+    std-msgs \
+    std-srvs \
+    stereo-msgs \
+    trajectory-msgs \
+    visualization-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/common_interfaces-release/archive/release/bouncy/common_interfaces/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "bc1f70aeb755628cb094b58af903d2ec"
@@ -28,9 +47,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/common-interfaces/common-interfaces-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/common-interfaces/common-interfaces-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/common-interfaces-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/common-interfaces/common-interfaces_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/common-interfaces/common-interfaces_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/common-interfaces-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/common-interfaces/${BPN}-${PV}.inc
 

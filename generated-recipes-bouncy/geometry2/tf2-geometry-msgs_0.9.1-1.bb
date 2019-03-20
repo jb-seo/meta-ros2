@@ -10,14 +10,30 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "geometry-msgs orocos-kdl tf2 tf2-ros"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    orocos-kdl \
+    tf2 \
+    tf2-ros \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-auto-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-auto-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    orocos-kdl \
+    tf2 \
+    tf2-ros \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/geometry2-release/archive/release/bouncy/tf2_geometry_msgs/0.9.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "cdd2ce7dd3a0ab2b9bba5412a259f439"
@@ -28,9 +44,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/geometry2/geometry2-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/geometry2/geometry2-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/tf2-geometry-msgs-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/geometry2/geometry2_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/geometry2/geometry2_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/tf2-geometry-msgs-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}-${PV}.inc
 

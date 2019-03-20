@@ -10,14 +10,35 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=7;endline=7;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "geometry-msgs nav-msgs rclcpp sensor-msgs tf2 tf2-ros"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+    tf2-ros \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+    tf2-ros \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/turtlebot2_demo-release/archive/release/bouncy/turtlebot2_drivers/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "9bfc635b8861e942a0305f6e07d16273"
@@ -28,9 +49,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/turtlebot2-demo/turtlebot2-demo-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/turtlebot2-demo/turtlebot2-demo-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/turtlebot2-drivers-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/turtlebot2-demo/turtlebot2-demo_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/turtlebot2-demo/turtlebot2-demo_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/turtlebot2-drivers-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/turtlebot2-demo/${BPN}-${PV}.inc
 

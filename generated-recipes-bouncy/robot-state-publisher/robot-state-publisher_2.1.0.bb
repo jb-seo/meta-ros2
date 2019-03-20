@@ -10,14 +10,37 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "geometry-msgs kdl-parser orocos-kdl rclcpp sensor-msgs tf2-ros urdf urdfdom-headers"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    kdl-parser \
+    orocos-kdl \
+    rclcpp \
+    sensor-msgs \
+    tf2-ros \
+    urdf \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    kdl-parser \
+    orocos-kdl \
+    rclcpp \
+    sensor-msgs \
+    tf2-ros \
+    urdf \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/robot_state_publisher-release/archive/release/bouncy/robot_state_publisher/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "5c9b66479b86db5532a6befa25e50b04"
@@ -28,11 +51,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/robot-state-publisher/robot-state-publisher-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/robot-state-publisher/robot-state-publisher-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/robot-state-publisher/robot-state-publisher-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/robot-state-publisher/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/robot-state-publisher/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/robot-state-publisher/robot-state-publisher_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/robot-state-publisher/robot-state-publisher_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/robot-state-publisher/robot-state-publisher-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

@@ -10,14 +10,36 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ament-cmake rclcpp sensor-msgs tf2 libeigen"
+ROS_BUILD_DEPENDS = " \
+    libeigen \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ament-cmake \
+    libeigen \
+    rclcpp \
+    sensor-msgs \
+    tf2 \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gmock ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/laser_geometry-release/archive/release/bouncy/laser_geometry/2.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "83b93cfe150b0fa259a4e45678ea5cca"
@@ -28,11 +50,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/laser-geometry/laser-geometry-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/laser-geometry/laser-geometry-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/laser-geometry/laser-geometry-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/laser-geometry/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/laser-geometry/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/laser-geometry/laser-geometry_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/laser-geometry/laser-geometry_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/laser-geometry/laser-geometry-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

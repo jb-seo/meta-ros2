@@ -10,14 +10,25 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=18;endline=18;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ament-index-cpp libcurl-vendor"
+ROS_BUILD_DEPENDS = " \
+    ament-index-cpp \
+    libcurl-vendor \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ament-index-cpp \
+    libcurl-vendor \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/resource_retriever-release/archive/release/bouncy/resource_retriever/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "757a9211721333c0b023ae1d0f03bb6f"
@@ -28,9 +39,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/resource-retriever/resource-retriever-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/resource-retriever/resource-retriever-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/resource-retriever-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/resource-retriever/resource-retriever_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/resource-retriever/resource-retriever_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/resource-retriever-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/resource-retriever/${BPN}-${PV}.inc
 

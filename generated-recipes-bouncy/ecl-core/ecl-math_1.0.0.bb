@@ -10,14 +10,29 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ecl-build ecl-license ecl-type-traits"
+ROS_BUILD_DEPENDS = " \
+    ecl-build \
+    ecl-license \
+    ecl-type-traits \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ecl-license \
+    ecl-type-traits \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/yujinrobot-release/ecl_core-release/archive/release/bouncy/ecl_math/1.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "f6d778099efc8c747434d0ac989c57e1"
@@ -28,9 +43,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ecl-core/ecl-core-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ecl-core/ecl-core-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-math-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ecl-core/ecl-core_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ecl-core/ecl-core_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/ecl-math-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ecl-core/${BPN}-${PV}.inc
 

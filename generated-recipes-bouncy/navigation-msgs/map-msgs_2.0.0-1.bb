@@ -10,14 +10,30 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=16;endline=16;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-ROS_BUILD_DEPENDS = "nav-msgs rosidl-default-runtime sensor-msgs std-msgs"
+ROS_BUILD_DEPENDS = " \
+    nav-msgs \
+    sensor-msgs \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native rosidl-default-generators-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    rosidl-default-generators-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    nav-msgs \
+    rosidl-default-runtime \
+    sensor-msgs \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/navigation_msgs-release/archive/release/bouncy/map_msgs/2.0.0-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "d556bf7c236e17c1cc669e98792ae34a"
@@ -28,11 +44,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/navigation-msgs/navigation-msgs-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/navigation-msgs/navigation-msgs-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation-msgs/map-msgs-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation-msgs/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation-msgs/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/navigation-msgs/navigation-msgs_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/navigation-msgs/navigation-msgs_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation-msgs/map-msgs-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

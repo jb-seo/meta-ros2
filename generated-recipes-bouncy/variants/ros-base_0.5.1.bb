@@ -10,14 +10,29 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "kdl-parser robot-state-publisher ros-core tf2 tf2-eigen tf2-geometry-msgs tf2-ros urdf"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    kdl-parser \
+    robot-state-publisher \
+    ros-core \
+    tf2 \
+    tf2-eigen \
+    tf2-geometry-msgs \
+    tf2-ros \
+    urdf \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/variants-release/archive/release/bouncy/ros_base/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "5a2c58c6e01a4b5c43d6e1b6da5f0f73"
@@ -28,9 +43,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/variants/variants-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/variants/variants-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/ros-base-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/variants/variants_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/variants/variants_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/ros-base-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}-${PV}.inc
 

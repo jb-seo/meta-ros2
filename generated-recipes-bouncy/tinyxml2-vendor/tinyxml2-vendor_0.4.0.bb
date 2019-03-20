@@ -10,14 +10,23 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=13;endline=13;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "libtinyxml2"
+ROS_BUILD_DEPENDS = " \
+    libtinyxml2 \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    libtinyxml2 \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/tinyxml2_vendor-release/archive/release/bouncy/tinyxml2_vendor/0.4.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "e6a25b5ff289dd74798e4d2b4a77c30a"
@@ -28,11 +37,9 @@ ROS_BUILD_TYPE = "cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/tinyxml2-vendor/tinyxml2-vendor-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/tinyxml2-vendor/tinyxml2-vendor-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/tinyxml2-vendor/tinyxml2-vendor-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/tinyxml2-vendor/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/tinyxml2-vendor/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/tinyxml2-vendor/tinyxml2-vendor_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/tinyxml2-vendor/tinyxml2-vendor_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/tinyxml2-vendor/tinyxml2-vendor-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

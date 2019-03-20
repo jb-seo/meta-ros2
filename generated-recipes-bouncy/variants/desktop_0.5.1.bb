@@ -10,27 +10,70 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "angles composition demo-nodes-cpp demo-nodes-cpp-native demo-nodes-py depthimage-to-laserscan dummy-map-server dummy-robot-bringup dummy-sensors examples-rclcpp-minimal-client examples-rclcpp-minimal-composition examples-rclcpp-minimal-publisher examples-rclcpp-minimal-service examples-rclcpp-minimal-subscriber examples-rclcpp-minimal-timer examples-rclpy-executors examples-rclpy-minimal-client examples-rclpy-minimal-publisher examples-rclpy-minimal-service examples-rclpy-minimal-subscriber image-tools intra-process-demo joy lifecycle logging-demo pcl-conversions pendulum-control ros-base rviz2 rviz-default-plugins sros2 teleop-twist-joy teleop-twist-keyboard tlsf tlsf-cpp topic-monitor"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+RDEPENDS_${PN} = " \
+    angles \
+    composition \
+    demo-nodes-cpp \
+    demo-nodes-cpp-native \
+    demo-nodes-py \
+    depthimage-to-laserscan \
+    dummy-map-server \
+    dummy-robot-bringup \
+    dummy-sensors \
+    examples-rclcpp-minimal-client \
+    examples-rclcpp-minimal-composition \
+    examples-rclcpp-minimal-publisher \
+    examples-rclcpp-minimal-service \
+    examples-rclcpp-minimal-subscriber \
+    examples-rclcpp-minimal-timer \
+    examples-rclpy-executors \
+    examples-rclpy-minimal-client \
+    examples-rclpy-minimal-publisher \
+    examples-rclpy-minimal-service \
+    examples-rclpy-minimal-subscriber \
+    image-tools \
+    intra-process-demo \
+    joy \
+    lifecycle \
+    logging-demo \
+    pcl-conversions \
+    pendulum-control \
+    ros-base \
+    rviz2 \
+    rviz-default-plugins \
+    sros2 \
+    teleop-twist-joy \
+    teleop-twist-keyboard \
+    tlsf \
+    tlsf-cpp \
+    topic-monitor \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/variants-release/archive/release/bouncy/${PN}/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/variants-release/archive/release/bouncy/desktop/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "1e76dcbf6c2a44220f82f58e065704c6"
 SRC_URI[sha256sum] = "2ade64ea13d238799e72867462952c5d98109020ece6ca443e86f27a4d5d0a02"
-S = "${WORKDIR}/variants-release-release-bouncy-${PN}-0.5.1-0"
+S = "${WORKDIR}/variants-release-release-bouncy-desktop-0.5.1-0"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/variants/variants-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/variants/variants-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/desktop-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/variants/variants_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/variants/variants_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/desktop-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/variants/${BPN}-${PV}.inc
 

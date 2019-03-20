@@ -10,14 +10,26 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "ament-index-python launch"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ament-index-python \
+    launch \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-flake8 ament-pep257 launch python3-pytest"
+ROS_TEST_DEPENDS = " \
+    ament-flake8 \
+    ament-pep257 \
+    launch \
+    python3-pytest \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/launch-release/archive/release/bouncy/launch_testing/0.6.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "9d8d50a8cbf9c125df3eef0393c4f4d0"
@@ -28,9 +40,9 @@ ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/launch/launch-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/launch/launch-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/launch-testing-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/launch/launch_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/launch/launch_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/launch-testing-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/launch/${BPN}-${PV}.inc
 

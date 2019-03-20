@@ -10,14 +10,25 @@ SECTION = "devel"
 LICENSE = "BSD-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=1e0ab6366e5108a0da760802f538e6ed"
 
-ROS_BUILD_DEPENDS = "geometry-msgs rclpy"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    geometry-msgs \
+    rclpy \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-copyright ament-flake8 ament-pep257"
+ROS_TEST_DEPENDS = " \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/teleop_twist_keyboard-release/archive/release/bouncy/teleop_twist_keyboard/2.1.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "bf475e8962865b0f6c1648d7a56170ff"
@@ -28,11 +39,9 @@ ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/teleop-twist-keyboard/teleop-twist-keyboard-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/teleop-twist-keyboard/teleop-twist-keyboard-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/teleop-twist-keyboard-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/teleop-twist-keyboard/teleop-twist-keyboard_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/teleop-twist-keyboard/teleop-twist-keyboard_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/teleop-twist-keyboard/teleop-twist-keyboard-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

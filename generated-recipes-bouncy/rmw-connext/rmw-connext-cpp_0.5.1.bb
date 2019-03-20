@@ -10,14 +10,41 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "connext-cmake-module rcutils rmw rmw-connext-shared-cpp rosidl-generator-c rosidl-generator-cpp rosidl-generator-dds-idl rosidl-typesupport-connext-c rosidl-typesupport-connext-cpp rti-connext-dds-5.3.1"
+ROS_BUILD_DEPENDS = " \
+    connext-cmake-module \
+    rcutils \
+    rmw \
+    rmw-connext-shared-cpp \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-generator-dds-idl \
+    rosidl-typesupport-connext-c \
+    rosidl-typesupport-connext-cpp \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native rosidl-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    rosidl-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    connext-cmake-module \
+    rcutils \
+    rmw \
+    rmw-connext-shared-cpp \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-typesupport-connext-c \
+    rosidl-typesupport-connext-cpp \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rmw_connext-release/archive/release/bouncy/rmw_connext_cpp/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "b4d0ade8ec98f42c5fc1c9bcaa1e02bb"
@@ -28,9 +55,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rmw-connext/rmw-connext-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rmw-connext/rmw-connext-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/rmw-connext-cpp-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rmw-connext/rmw-connext_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rmw-connext/rmw-connext_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/rmw-connext-cpp-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-connext/${BPN}-${PV}.inc
 

@@ -10,14 +10,23 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rmw_fastrtps-release/archive/release/bouncy/fastrtps_cmake_module/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "d736000593551c22d0b48f3506289c40"
@@ -28,9 +37,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rmw-fastrtps/rmw-fastrtps-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rmw-fastrtps/rmw-fastrtps-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-fastrtps/fastrtps-cmake-module-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rmw-fastrtps/rmw-fastrtps_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rmw-fastrtps/rmw-fastrtps_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-fastrtps/fastrtps-cmake-module-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-fastrtps/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-fastrtps/${BPN}-${PV}.inc
 

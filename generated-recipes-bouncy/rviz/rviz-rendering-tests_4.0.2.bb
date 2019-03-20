@@ -10,14 +10,33 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-ROS_BUILD_DEPENDS = "resource-retriever rviz-rendering qtbase"
+ROS_BUILD_DEPENDS = " \
+    qtbase \
+    resource-retriever \
+    rviz-rendering \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    resource-retriever \
+    rviz-rendering \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gmock ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify ament-index-cpp"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+    ament-index-cpp \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rviz-release/archive/release/bouncy/rviz_rendering_tests/4.0.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "ee4c1cfa3a56c965a3290dffa4c103b4"
@@ -28,9 +47,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-rendering-tests-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-rendering-tests-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}-${PV}.inc
 

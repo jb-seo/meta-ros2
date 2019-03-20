@@ -10,14 +10,27 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "builtin-interfaces geometry-msgs rosidl-default-runtime"
+ROS_BUILD_DEPENDS = " \
+    builtin-interfaces \
+    geometry-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native rosidl-default-generators-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    rosidl-default-generators-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    builtin-interfaces \
+    geometry-msgs \
+    rosidl-default-runtime \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/geometry2-release/archive/release/bouncy/tf2_msgs/0.9.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "95cfcf0800a25cf3006364a35d124785"
@@ -28,9 +41,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/geometry2/geometry2-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/geometry2/geometry2-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/tf2-msgs-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/geometry2/geometry2_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/geometry2/geometry2_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/tf2-msgs-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/geometry2/${BPN}-${PV}.inc
 

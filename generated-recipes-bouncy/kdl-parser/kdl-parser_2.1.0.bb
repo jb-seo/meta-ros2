@@ -10,14 +10,31 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=17;endline=17;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "orocos-kdl tinyxml-vendor urdf urdfdom-headers libtinyxml"
+ROS_BUILD_DEPENDS = " \
+    orocos-kdl \
+    libtinyxml \
+    tinyxml-vendor \
+    urdf \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    orocos-kdl \
+    libtinyxml \
+    tinyxml-vendor \
+    urdf \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/kdl_parser-release/archive/release/bouncy/kdl_parser/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "7debb050459ae71277df4f4e3db5a4ea"
@@ -28,11 +45,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/kdl-parser/kdl-parser-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/kdl-parser/kdl-parser-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/kdl-parser-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/kdl-parser/kdl-parser_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/kdl-parser/kdl-parser_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/kdl-parser/kdl-parser-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

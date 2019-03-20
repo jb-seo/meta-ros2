@@ -10,14 +10,21 @@ SECTION = "devel"
 LICENSE = "GPL-3"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=78ab71f8bc669914d3a3405fa3ef1c9c"
 
-ROS_BUILD_DEPENDS = "ament-cmake-core"
+ROS_BUILD_DEPENDS = " \
+    ament-cmake-core \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/uncrustify-release/archive/release/bouncy/uncrustify_vendor/0.66.1-1.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "440627c3799340954fde6f127171ffed"
@@ -28,11 +35,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/uncrustify/uncrustify-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/uncrustify/uncrustify-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/uncrustify-vendor-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/uncrustify/uncrustify_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/uncrustify/uncrustify_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/uncrustify/uncrustify-vendor-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

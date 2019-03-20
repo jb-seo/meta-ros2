@@ -10,14 +10,37 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rcutils rmw rosidl-generator-c rosidl-generator-cpp rosidl-generator-dds-idl rosidl-typesupport-opensplice-c rosidl-typesupport-opensplice-cpp libopensplice67"
+ROS_BUILD_DEPENDS = " \
+    rcutils \
+    rmw \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-generator-dds-idl \
+    rosidl-typesupport-opensplice-c \
+    rosidl-typesupport-opensplice-cpp \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native opensplice-cmake-module-native rosidl-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    opensplice-cmake-module-native \
+    rosidl-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    rmw \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-typesupport-opensplice-c \
+    rosidl-typesupport-opensplice-cpp \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rmw_opensplice-release/archive/release/bouncy/rmw_opensplice_cpp/0.5.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "151d1ae792fa823f85da4a02a676381d"
@@ -28,11 +51,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rmw-opensplice/rmw-opensplice-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rmw-opensplice/rmw-opensplice-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-opensplice/rmw-opensplice-cpp-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-opensplice/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-opensplice/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rmw-opensplice/rmw-opensplice_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rmw-opensplice/rmw-opensplice_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rmw-opensplice/rmw-opensplice-cpp-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

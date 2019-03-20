@@ -10,14 +10,35 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "poco-vendor rmw-implementation rosidl-generator-c rosidl-typesupport-c rosidl-typesupport-connext-cpp rosidl-typesupport-interface rosidl-typesupport-introspection-cpp rosidl-typesupport-opensplice-cpp poco"
+ROS_BUILD_DEPENDS = " \
+    poco \
+    poco-vendor \
+    rosidl-generator-c \
+    rosidl-typesupport-connext-cpp \
+    rosidl-typesupport-introspection-cpp \
+    rosidl-typesupport-opensplice-cpp \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    poco \
+    poco-vendor \
+    rmw-implementation \
+    rosidl-generator-c \
+    rosidl-typesupport-c \
+    rosidl-typesupport-interface \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rosidl_typesupport-release/archive/release/bouncy/rosidl_typesupport_cpp/0.5.0-2.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "219e2df46038df4c399a418610e44781"
@@ -28,9 +49,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rosidl-typesupport/rosidl-typesupport-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rosidl-typesupport/rosidl-typesupport-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/rosidl-typesupport-cpp-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rosidl-typesupport/rosidl-typesupport_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rosidl-typesupport/rosidl-typesupport_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/rosidl-typesupport-cpp-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl-typesupport/${BPN}-${PV}.inc
 

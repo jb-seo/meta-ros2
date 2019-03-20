@@ -10,14 +10,43 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "ament-index-cpp resource-retriever rviz-assimp-vendor rviz-ogre-vendor libeigen qtbase qtbase qtbase qtbase qtbase"
+ROS_BUILD_DEPENDS = " \
+    ament-index-cpp \
+    libeigen \
+    qtbase \
+    resource-retriever \
+    rviz-assimp-vendor \
+    rviz-ogre-vendor \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    ament-index-cpp \
+    libeigen \
+    qtbase \
+    qtbase \
+    qtbase \
+    qtbase \
+    resource-retriever \
+    rviz-assimp-vendor \
+    rviz-ogre-vendor \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-cppcheck ament-cmake-cpplint ament-cmake-gmock ament-cmake-gtest ament-cmake-lint-cmake ament-cmake-uncrustify rviz-assimp-vendor"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-cppcheck \
+    ament-cmake-cpplint \
+    ament-cmake-gmock \
+    ament-cmake-gtest \
+    ament-cmake-lint-cmake \
+    ament-cmake-uncrustify \
+    rviz-assimp-vendor \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rviz-release/archive/release/bouncy/rviz_rendering/4.0.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "043f19b1fd1e353e895a3dd50c72a054"
@@ -28,9 +57,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-rendering-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rviz/rviz_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/rviz-rendering-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rviz/${BPN}-${PV}.inc
 

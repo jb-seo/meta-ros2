@@ -10,14 +10,40 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=14;endline=14;md5=01c2bc31767ccb3a68e12f02612b2a97"
 
-ROS_BUILD_DEPENDS = "geometry-msgs nav-msgs rclcpp rcutils tf2 libsdl libsdl-image yaml-cpp"
+ROS_BUILD_DEPENDS = " \
+    geometry-msgs \
+    nav-msgs \
+    rclcpp \
+    rcutils \
+    libsdl \
+    libsdl-image \
+    tf2 \
+    yaml-cpp \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    nav-msgs \
+    rclcpp \
+    rcutils \
+    libsdl \
+    libsdl-image \
+    tf2 \
+    yaml-cpp \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest ament-cmake-pytest launch-testing rclpy"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+    ament-cmake-pytest \
+    launch-testing \
+    rclpy \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/navigation-release/archive/release/bouncy/map_server/3.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "adb17c5bca1ea29d6c73784b5c7b946e"
@@ -28,9 +54,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/navigation/navigation-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/navigation/navigation-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/map-server-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/navigation/navigation_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/navigation/navigation_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/map-server-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/navigation/${BPN}-${PV}.inc
 

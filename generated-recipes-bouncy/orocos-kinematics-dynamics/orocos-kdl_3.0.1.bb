@@ -10,14 +10,25 @@ SECTION = "devel"
 LICENSE = "LGPL-2"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=46ee8693f40a89a31023e97ae17ecf19"
 
-ROS_BUILD_DEPENDS = "libeigen pkgconf"
+ROS_BUILD_DEPENDS = " \
+    libeigen \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    libeigen \
+    pkgconf \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "cppunit"
+ROS_TEST_DEPENDS = " \
+    cppunit \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/orocos_kinematics_dynamics-release/archive/release/bouncy/orocos_kdl/3.0.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "e28fd99376063237bf3107629da57a70"
@@ -28,11 +39,9 @@ ROS_BUILD_TYPE = "cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/orocos-kinematics-dynamics/orocos-kinematics-dynamics-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/orocos-kinematics-dynamics/orocos-kinematics-dynamics-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/orocos-kinematics-dynamics/orocos-kdl-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/orocos-kinematics-dynamics/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/orocos-kinematics-dynamics/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/orocos-kinematics-dynamics/orocos-kinematics-dynamics_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/orocos-kinematics-dynamics/orocos-kinematics-dynamics_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/orocos-kinematics-dynamics/orocos-kdl-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

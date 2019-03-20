@@ -10,14 +10,24 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = ""
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-core-native ament-cmake-test-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-core-native \
+    ament-cmake-test-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-copyright ament-cmake-lint-cmake"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-copyright \
+    ament-cmake-lint-cmake \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/ament_lint-release/archive/release/bouncy/ament_cmake_pep257/0.5.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "0a1083d2caa5ad2faf91ccfc15ae6bda"
@@ -28,9 +38,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ament-lint/ament-lint-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ament-lint/ament-lint-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/ament-cmake-pep257-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ament-lint/ament-lint_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ament-lint/ament-lint_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/ament-cmake-pep257-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-lint/${BPN}-${PV}.inc
 

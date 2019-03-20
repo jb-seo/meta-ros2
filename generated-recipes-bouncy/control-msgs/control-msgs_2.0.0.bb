@@ -10,14 +10,31 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=11;endline=11;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "actionlib-msgs builtin-interfaces rosidl-default-runtime trajectory-msgs"
+ROS_BUILD_DEPENDS = " \
+    actionlib-msgs \
+    builtin-interfaces \
+    trajectory-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native rosidl-default-generators-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+    rosidl-default-generators-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    actionlib-msgs \
+    builtin-interfaces \
+    rosidl-default-runtime \
+    trajectory-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros-gbp/control_msgs-release/archive/release/bouncy/control_msgs/2.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "b35f00beda3ea89b593659dca8662f03"
@@ -28,11 +45,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/control-msgs/control-msgs-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/control-msgs/control-msgs-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/control-msgs/control-msgs-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/control-msgs/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/control-msgs/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/control-msgs/control-msgs_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/control-msgs/control-msgs_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/control-msgs/control-msgs-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

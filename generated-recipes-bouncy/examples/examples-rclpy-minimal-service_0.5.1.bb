@@ -10,14 +10,27 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "example-interfaces rclpy std-msgs"
+ROS_BUILD_DEPENDS = " \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    example-interfaces \
+    rclpy \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-copyright ament-flake8 ament-pep257 python3-pytest"
+ROS_TEST_DEPENDS = " \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    python3-pytest \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/examples-release/archive/release/bouncy/examples_rclpy_minimal_service/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "78c3cfd5ae532f4ec0c31b3fb716dd7a"
@@ -28,9 +41,9 @@ ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/examples/examples-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/examples/examples-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-rclpy-minimal-service-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/examples/examples_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/examples/examples_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-rclpy-minimal-service-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}-${PV}.inc
 

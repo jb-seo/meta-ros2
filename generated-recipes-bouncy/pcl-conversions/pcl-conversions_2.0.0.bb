@@ -10,14 +10,32 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "builtin-interfaces sensor-msgs std-msgs libeigen pcl"
+ROS_BUILD_DEPENDS = " \
+    builtin-interfaces \
+    libeigen \
+    pcl \
+    sensor-msgs \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    builtin-interfaces \
+    libeigen \
+    pcl \
+    sensor-msgs \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-cmake-gtest"
+ROS_TEST_DEPENDS = " \
+    ament-cmake-gtest \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/pcl_conversions-release/archive/release/bouncy/pcl_conversions/2.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "8331fc6c5f2f04637a4efcc90f262543"
@@ -28,11 +46,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/pcl-conversions/pcl-conversions-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/pcl-conversions/pcl-conversions-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/pcl-conversions-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/pcl-conversions/pcl-conversions_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/pcl-conversions/pcl-conversions_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/pcl-conversions/pcl-conversions-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

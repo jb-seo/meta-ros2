@@ -10,29 +10,38 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=6;endline=6;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = "rclcpp sensor-msgs"
+ROS_BUILD_DEPENDS = " \
+    rclcpp \
+    sensor-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+RDEPENDS_${PN} = " \
+    rclcpp \
+    sensor-msgs \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/${PN}stick_drivers-release/archive/release/bouncy/${PN}/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/joystick_drivers-release/archive/release/bouncy/joy/2.1.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "45ce53ab8914465f81f3c00ed863df19"
 SRC_URI[sha256sum] = "42f44c4a24dc860d3dd44f0ec6ecd818ee0c81f02d3656fc1fae2c0e7d2724d4"
-S = "${WORKDIR}/${PN}stick_drivers-release-release-bouncy-${PN}-2.1.0-0"
+S = "${WORKDIR}/joystick_drivers-release-release-bouncy-joy-2.1.0-0"
 
 ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/joystick-drivers/joystick-drivers-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/joystick-drivers/joystick-drivers-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/joy-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/joystick-drivers/joystick-drivers_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/joystick-drivers/joystick-drivers_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/joystick-drivers/joy-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

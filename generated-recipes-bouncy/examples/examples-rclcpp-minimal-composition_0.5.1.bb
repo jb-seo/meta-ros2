@@ -10,14 +10,27 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=9;endline=9;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "class-loader rclcpp std-msgs"
+ROS_BUILD_DEPENDS = " \
+    class-loader \
+    rclcpp \
+    std-msgs \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    class-loader \
+    rclcpp \
+    std-msgs \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+ROS_TEST_DEPENDS = " \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/examples-release/archive/release/bouncy/examples_rclcpp_minimal_composition/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "950c03b36771f2ac998618890b6d5fd1"
@@ -28,9 +41,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/examples/examples-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/examples/examples-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-rclcpp-minimal-composition-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/examples/examples_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/examples/examples_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/examples-rclcpp-minimal-composition-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/examples/${BPN}-${PV}.inc
 

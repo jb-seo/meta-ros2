@@ -10,14 +10,24 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "python3-setuptools"
+ROS_BUILD_DEPENDS = " \
+    python3-setuptools \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    python3-setuptools \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "python-flake8 python3-pytest"
+ROS_TEST_DEPENDS = " \
+    python-flake8 \
+    python3-pytest \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/ament_package-release/archive/release/bouncy/ament_package/0.5.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "75e98209706f6eed8bbb449c3e3194d1"
@@ -28,11 +38,9 @@ ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ament-package/ament-package-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ament-package/ament-package-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/ament-package-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ament-package/ament-package_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ament-package/ament-package_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ament-package/ament-package-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

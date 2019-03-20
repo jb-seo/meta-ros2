@@ -10,27 +10,44 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rcl-interfaces rclpy ros2cli ros2node"
+ROS_BUILD_DEPENDS = " \
+    rcl-interfaces \
+    rclpy \
+    ros2cli \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = ""
+ROS_BUILDTOOL_DEPENDS = " \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-copyright ament-flake8 ament-pep257 python3-pytest"
+RDEPENDS_${PN} = " \
+    rcl-interfaces \
+    rclpy \
+    ros2cli \
+    ros2node \
+"
 
-SRC_URI = "https://github.com/ros2-gbp/ros2cli-release/archive/release/bouncy/${PN}/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+    ament-copyright \
+    ament-flake8 \
+    ament-pep257 \
+    python3-pytest \
+"
+
+SRC_URI = "https://github.com/ros2-gbp/ros2cli-release/archive/release/bouncy/ros2param/0.5.4-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "2769f67be1579001b3fe99d8763fde28"
 SRC_URI[sha256sum] = "ce295299fdd30c80fb2a7db2453f457f0bc1c50662013cf78e34c66e5d78fdd6"
-S = "${WORKDIR}/ros2cli-release-release-bouncy-${PN}-0.5.4-0"
+S = "${WORKDIR}/ros2cli-release-release-bouncy-ros2param-0.5.4-0"
 
 ROS_BUILD_TYPE = "ament_python"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/ros2cli/ros2cli-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/ros2cli/ros2cli-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2param-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/ros2cli/ros2cli_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/ros2cli/ros2cli_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/ros2param-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/ros2cli/${BPN}-${PV}.inc
 

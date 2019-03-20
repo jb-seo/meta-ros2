@@ -10,29 +10,36 @@ SECTION = "devel"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=12;endline=12;md5=58e54c03ca7f821dd3967e2a2cd1596e"
 
-ROS_BUILD_DEPENDS = "libeigen"
+ROS_BUILD_DEPENDS = " \
+    libeigen \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "cmake-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    cmake-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = ""
+RDEPENDS_${PN} = " \
+    libeigen \
+"
 
-SRC_URI = "https://github.com/yujinrobot-release/${PN}-release/archive/release/bouncy/${PN}/1.0.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
+# Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
+ROS_TEST_DEPENDS = " \
+"
+
+SRC_URI = "https://github.com/yujinrobot-release/sophus-release/archive/release/bouncy/sophus/1.0.2-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "c5c272478b10c919569d44b9c62ce5e4"
 SRC_URI[sha256sum] = "a29074bc4fcfb6f1becebcfab6146a37b75d0a3479d846c808b3b2fa1585804e"
-S = "${WORKDIR}/${PN}-release-release-bouncy-${PN}-1.0.2-0"
+S = "${WORKDIR}/sophus-release-release-bouncy-sophus-1.0.2-0"
 
 ROS_BUILD_TYPE = "cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/sophus/sophus-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/sophus/sophus-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/sophus/sophus-common-${PV}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/sophus/${BPN}.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/sophus/${BPN}-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/sophus/sophus_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/sophus/sophus_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/sophus/sophus-${PV}_common.inc
 
 inherit ros_${ROSDISTRO}
 inherit ros_${ROS_BUILD_TYPE}

@@ -10,14 +10,30 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=10;endline=10;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = "rosidl-cmake rosidl-generator-c rosidl-generator-cpp rosidl-parser rosidl-typesupport-interface rosidl-typesupport-introspection-c"
+ROS_BUILD_DEPENDS = " \
+    rosidl-typesupport-introspection-c \
+"
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
-ROS_BUILDTOOL_DEPENDS = "ament-cmake-ros-native"
+ROS_BUILDTOOL_DEPENDS = " \
+    ament-cmake-ros-native \
+"
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
+RDEPENDS_${PN} = " \
+    rosidl-cmake \
+    rosidl-generator-c \
+    rosidl-generator-cpp \
+    rosidl-parser \
+    rosidl-typesupport-interface \
+    rosidl-typesupport-introspection-c \
+"
+
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = "ament-lint-auto ament-lint-common"
+ROS_TEST_DEPENDS = " \
+    ament-lint-auto \
+    ament-lint-common \
+"
 
 SRC_URI = "https://github.com/ros2-gbp/rosidl-release/archive/release/bouncy/rosidl_typesupport_introspection_cpp/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "367203b8572a570518d93acff8aa4ac2"
@@ -28,9 +44,9 @@ ROS_BUILD_TYPE = "ament_cmake"
 ROS_RECIPES_TREE = "recipes-ros2"
 
 # Allow the above settings to be overridden.
-include ${ROS_LAYERDIR}/recipes-ros/rosidl/rosidl-common.inc
-include ${ROS_LAYERDIR}/recipes-ros2/rosidl/rosidl-common.inc
-include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/rosidl-typesupport-introspection-cpp-common-${PV}.inc
+include ${ROS_LAYERDIR}/recipes-ros/rosidl/rosidl_common.inc
+include ${ROS_LAYERDIR}/recipes-ros2/rosidl/rosidl_common.inc
+include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/rosidl-typesupport-introspection-cpp-${PV}_common.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/${BPN}.inc
 include ${ROS_LAYERDIR}/${ROS_RECIPES_TREE}/rosidl/${BPN}-${PV}.inc
 
