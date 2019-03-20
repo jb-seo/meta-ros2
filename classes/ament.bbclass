@@ -21,12 +21,13 @@ DEPENDS_append = " \
 
 ROS_BPN ?= "${@d.getVar('BPN', True).replace('-', '_')}"
 
-S = "${WORKDIR}/git/${ROS_BPN}"
+# FIXME superflore created 'S' based on release tarball
+# S = "${WORKDIR}/git/${ROS_BPN}"
 
-EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-${TUNE_ARCH}-${TARGET_OS}${ARMPKGSFX_EABI}"
+EXTRA_OECMAKE_append = " -DPYTHON_SOABI=cpython-35m-${TUNE_ARCH}-${TARGET_OS}${ARMPKGSFX_EABI}"
 export AMENT_PREFIX_PATH="${STAGING_DIR_HOST}${prefix};${STAGING_DIR_NATIVE}${prefix}"
 
-inherit cmake python3native
+inherit cmake python3native pythonpath-insane
 
 do_install_append() {
     rm -rf ${D}${datadir}/${ROS_BPN}/environment
@@ -44,10 +45,12 @@ do_install_append() {
 
 FILES_${PN} = " \
     ${datadir}/${ROS_BPN}/package.xml \
+    ${datadir}/${ROS_BPN}/mapping_rules.yaml \
     ${datadir}/${ROS_BPN}/resource/* \
     ${datadir}/${ROS_BPN}/msg/* \
     ${datadir}/${ROS_BPN}/srv/* \
     ${datadir}/${ROS_BPN}/launch/* \
+    ${datadir}/${ROS_BPN}/config/* \
     ${datadir}/ament_index/* \
     ${libdir}/${PYTHON_DIR}/* \
     ${libdir}/${ROS_BPN}/* \
