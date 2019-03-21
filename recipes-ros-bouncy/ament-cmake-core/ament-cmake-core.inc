@@ -1,0 +1,1 @@
+DEPENDS_append = " ${PYTHON_PN}-pyparsing"
