@@ -20,19 +20,23 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
+# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 ROS_EXPORT_DEPENDS = " \
     libtinyxml \
 "
 DEPENDS += "${ROS_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+DEPENDS += "${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+ROS_EXEC_DEPENDS = " \
     libtinyxml \
 "
+RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-"
+ROS_TEST_DEPENDS = ""
 
 SRC_URI = "https://github.com/ros2-gbp/tinyxml_vendor-release/archive/release/bouncy/tinyxml_vendor/0.5.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "7b0a4b3c128d0d1df1a83dec3f41e09b"

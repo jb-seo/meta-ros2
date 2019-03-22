@@ -10,8 +10,7 @@ SECTION = "devel"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=12c26a18c7f493fdc7e8a93b16b7c04f"
 
-ROS_BUILD_DEPENDS = " \
-"
+ROS_BUILD_DEPENDS = ""
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -19,7 +18,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
+# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 ROS_EXPORT_DEPENDS = " \
     rosidl-generator-cpp \
     rosidl-generator-py \
@@ -30,14 +30,11 @@ ROS_EXPORT_DEPENDS = " \
 "
 DEPENDS += "${ROS_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += " \
-    rosidl-generator-cpp \
-    rosidl-generator-py \
-    rosidl-typesupport-c \
-    rosidl-typesupport-cpp \
-    rosidl-typesupport-introspection-c \
-    rosidl-typesupport-introspection-cpp \
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+DEPENDS += "${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+ROS_EXEC_DEPENDS = ""
+RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

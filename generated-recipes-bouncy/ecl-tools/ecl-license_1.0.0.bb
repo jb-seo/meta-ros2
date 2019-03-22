@@ -10,8 +10,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=3;endline=3;md5=f895f13378d9b55d775a2405d35506fd"
 
-ROS_BUILD_DEPENDS = " \
-"
+ROS_BUILD_DEPENDS = ""
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -19,17 +18,19 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
-ROS_EXPORT_DEPENDS = " \
-"
+# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
+# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
+ROS_EXPORT_DEPENDS = ""
 DEPENDS += "${ROS_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += " \
-"
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+DEPENDS += "${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+ROS_EXEC_DEPENDS = ""
+RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-"
+ROS_TEST_DEPENDS = ""
 
 SRC_URI = "https://github.com/yujinrobot-release/ecl_tools-release/archive/release/bouncy/ecl_license/1.0.0-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "4a3cba5d5f196139b7c13f76b1585ed7"

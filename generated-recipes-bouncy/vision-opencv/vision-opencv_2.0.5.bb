@@ -10,8 +10,7 @@ SECTION = "devel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://package.xml;beginline=8;endline=8;md5=d566ef916e9dedc494f5f793a6690ba5"
 
-ROS_BUILD_DEPENDS = " \
-"
+ROS_BUILD_DEPENDS = ""
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
 ROS_BUILDTOOL_DEPENDS = " \
@@ -19,19 +18,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
-ROS_EXPORT_DEPENDS = " \
-"
+# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
+# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
+ROS_EXPORT_DEPENDS = ""
 DEPENDS += "${ROS_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += " \
+ROS_BUILDTOOL_EXPORT_DEPENDS = ""
+DEPENDS += "${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+ROS_EXEC_DEPENDS = " \
     cv-bridge \
     image-geometry \
 "
+RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-"
+ROS_TEST_DEPENDS = ""
 
 SRC_URI = "https://github.com/ros2-gbp/vision_opencv-release/archive/release/bouncy/vision_opencv/2.0.5-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "c7922277b6245ef022d5084f45ebb54c"

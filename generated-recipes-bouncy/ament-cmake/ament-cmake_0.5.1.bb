@@ -21,7 +21,8 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+# Bitbake doesn't support the "export" concept, so build them as if we needed them to build this package (even though we actually
+# don't) so that they're guaranteed to have been staged should this package appear in another's DEPENDS.
 ROS_EXPORT_DEPENDS = " \
     ament-cmake-core \
     ament-cmake-export-definitions \
@@ -37,23 +38,16 @@ ROS_EXPORT_DEPENDS = " \
 "
 DEPENDS += "${ROS_EXPORT_DEPENDS}"
 
-RDEPENDS_${PN} += " \
-    ament-cmake-core \
-    ament-cmake-export-definitions \
-    ament-cmake-export-dependencies \
-    ament-cmake-export-include-directories \
-    ament-cmake-export-interfaces \
-    ament-cmake-export-libraries \
-    ament-cmake-export-link-flags \
-    ament-cmake-libraries \
-    ament-cmake-python \
-    ament-cmake-target-dependencies \
-    ament-cmake-test \
+ROS_BUILDTOOL_EXPORT_DEPENDS = " \
+    cmake-native \
 "
+DEPENDS += "${ROS_BUILDTOOL_EXPORT_DEPENDS}"
+
+ROS_EXEC_DEPENDS = ""
+RDEPENDS_${PN} += "${ROS_EXEC_DEPENDS}"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
-ROS_TEST_DEPENDS = " \
-"
+ROS_TEST_DEPENDS = ""
 
 SRC_URI = "https://github.com/ros2-gbp/ament_cmake-release/archive/release/bouncy/ament_cmake/0.5.1-0.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
 SRC_URI[md5sum] = "a55a85bbf8645fb5e561b691cdde2b80"
