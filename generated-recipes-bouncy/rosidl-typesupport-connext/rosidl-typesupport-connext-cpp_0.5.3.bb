@@ -20,10 +20,17 @@ ROS_BUILDTOOL_DEPENDS = " \
     rosidl-cmake-native \
     rosidl-generator-c-native \
     rosidl-generator-cpp-native \
+    rti-connext-dds-5.3.1-native \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    rmw \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     rmw \
     rosidl-parser \
     rosidl-typesupport-interface \

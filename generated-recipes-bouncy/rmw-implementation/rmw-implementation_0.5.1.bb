@@ -15,10 +15,8 @@ ROS_BUILD_DEPENDS = " \
     poco-vendor \
     rcutils \
     rmw \
-    rmw-connext-cpp \
     rmw-fastrtps-cpp \
     rmw-implementation-cmake \
-    rmw-opensplice-cpp \
 "
 DEPENDS = "${ROS_BUILD_DEPENDS}"
 
@@ -27,7 +25,15 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    poco \
+    poco-vendor \
+    rmw-implementation-cmake \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     poco \
     poco-vendor \
     rmw-implementation-cmake \

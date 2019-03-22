@@ -28,7 +28,20 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    fastcdr \
+    fastrtps \
+    fastrtps-cmake-module \
+    rcutils \
+    rmw \
+    rosidl-generator-c \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     fastcdr \
     fastrtps \
     fastrtps-cmake-module \

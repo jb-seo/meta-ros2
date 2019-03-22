@@ -28,7 +28,22 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    builtin-interfaces \
+    rcl \
+    rcl-interfaces \
+    rcl-yaml-param-parser \
+    rmw \
+    rmw-implementation \
+    rosgraph-msgs \
+    rosidl-generator-cpp \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     ament-cmake \
     builtin-interfaces \
     rcl \

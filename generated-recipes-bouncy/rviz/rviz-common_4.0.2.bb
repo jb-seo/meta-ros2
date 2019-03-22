@@ -35,7 +35,28 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    geometry-msgs \
+    pluginlib \
+    qtbase \
+    rclcpp \
+    resource-retriever \
+    rviz-assimp-vendor \
+    rviz-ogre-vendor \
+    rviz-rendering \
+    rviz-yaml-cpp-vendor \
+    sensor-msgs \
+    std-msgs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+    tinyxml-vendor \
+    urdf \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     geometry-msgs \
     qtbase \
     qtbase \

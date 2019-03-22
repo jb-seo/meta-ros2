@@ -43,7 +43,25 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    actionlib-msgs \
+    diagnostic-msgs \
+    example-interfaces \
+    geometry-msgs \
+    nav-msgs \
+    rosgraph-msgs \
+    sensor-msgs \
+    shape-msgs \
+    std-srvs \
+    stereo-msgs \
+    tf2-msgs \
+    trajectory-msgs \
+    visualization-msgs \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     actionlib-msgs \
     builtin-interfaces \
     diagnostic-msgs \

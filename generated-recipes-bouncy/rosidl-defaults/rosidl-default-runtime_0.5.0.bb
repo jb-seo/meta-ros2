@@ -19,7 +19,18 @@ ROS_BUILDTOOL_DEPENDS = " \
 "
 DEPENDS += "${ROS_BUILDTOOL_DEPENDS}"
 
-RDEPENDS_${PN} = " \
+# Bitbake doesn't support this concept, so build them when we build this package even though they aren't.
+ROS_EXPORT_DEPENDS = " \
+    rosidl-generator-cpp \
+    rosidl-generator-py \
+    rosidl-typesupport-c \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-introspection-c \
+    rosidl-typesupport-introspection-cpp \
+"
+DEPENDS += "${ROS_EXPORT_DEPENDS}"
+
+RDEPENDS_${PN} += " \
     rosidl-generator-cpp \
     rosidl-generator-py \
     rosidl-typesupport-c \
