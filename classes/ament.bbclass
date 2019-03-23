@@ -1,8 +1,10 @@
+# Create a list for use by non-generated recipes (the generated recipes have these in the ROS_BUILDTOOLS_DEPENDS)
+#
 # FIXME: My intuition says that it should be enough to depend on ament-cmake-native only
 #        since ament-cmake has runtime dependencies on all other needed ament-cmake-* packages.
 #        Yet in practice all ament-based packages have to depend explicitly on the native
 #        ament-cmake-* packages.
-DEPENDS_append = " \
+ROS_AMENT_CMAKE_BUILDTOOL_DEPENDS = " \
     ament-tools-native \
     ament-cmake-native \
     ament-cmake-export-definitions-native \
