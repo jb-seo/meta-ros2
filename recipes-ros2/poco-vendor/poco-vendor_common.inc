@@ -1,5 +1,7 @@
 BBCLASSEXTEND = "native"
 
+ALLOW_EMPTY_${PN} = "1"
+
 FILES_${PN}-dev += " \
     ${datadir}/${ROS_BPN}/cmake/* \
 "
