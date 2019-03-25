@@ -1,0 +1,2 @@
+# XXX
+DEPENDS += "fastrtps"
