@@ -30,7 +30,7 @@ ROS_EXEC_DEPENDS = " \
     angles \
     composition \
     demo-nodes-cpp \
-    demo-nodes-cpp-native \
+    demo-nodes-cpp-native-ros \
     demo-nodes-py \
     depthimage-to-laserscan \
     dummy-map-server \
