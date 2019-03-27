@@ -1,0 +1,5 @@
+ROS_EXEC_DEPENDS_remove = "ament-cmake-gmock"
+ROS_EXEC_DEPENDS_remove = "ament-cmake-gtest"
+ROS_EXEC_DEPENDS_remove = "ament-cmake-pytest"
+ROS_EXEC_DEPENDS_remove = "ament-lint-auto"
+ROS_EXEC_DEPENDS_remove = "ament-lint-common"
