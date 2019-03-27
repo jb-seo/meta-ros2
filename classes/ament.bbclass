@@ -5,7 +5,6 @@
 #        Yet in practice all ament-based packages have to depend explicitly on the native
 #        ament-cmake-* packages.
 ROS_AMENT_CMAKE_BUILDTOOL_DEPENDS = " \
-    ament-tools-native \
     ament-cmake-native \
     ament-cmake-export-definitions-native \
     ament-cmake-export-dependencies-native \
