@@ -11,4 +11,4 @@ require urdfdom.inc
 
 S = "${WORKDIR}/${ROS_SP}"
 
-inherit cmake ros
+inherit cmake catkin_opt_ros
