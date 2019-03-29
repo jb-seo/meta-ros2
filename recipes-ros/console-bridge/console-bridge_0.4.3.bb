@@ -11,8 +11,8 @@ LIC_FILES_CHKSUM = "\
 DEPENDS = "boost"
 
 SRC_URI = "https://github.com/ros/${ROS_SPN}/archive/${PV}.tar.gz;downloadfilename=${ROS_SP}.tar.gz"
-SRC_URI[md5sum] = "061ae26707cc56db1bb80421abf6c3f0"
-SRC_URI[sha256sum] = "9145f0f97337fc87b4c062a4bab6874e383dad3a303486b635d31af69ee0d536"
+SRC_URI[md5sum] = "7c2e11c4342f453bd42527bb4593dcfb"
+SRC_URI[sha256sum] = "9f024a38f0947ed9fa67f58829980c2d90d84740e6de20d75cb00866f07a7a0b"
 
 S = "${WORKDIR}/${ROS_SP}"
 
