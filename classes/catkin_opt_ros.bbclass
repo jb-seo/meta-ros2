@@ -22,6 +22,9 @@ PREPROCESS_RELOCATE_DIRS += " \
     ${ros_libdir} \
 "
 
+ROS_USE_PYTHON3 ??= "no"
+inherit ${@'python3-dir' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'python-dir'}
+
 PKG_CONFIG_PATH .= ":${PKG_CONFIG_DIR}:${STAGING_DIR_HOST}${ros_libdir}/pkgconfig:${STAGING_DATADIR}/pkgconfig"
 PYTHON_SITEPACKAGES_DIR = "${ros_libdir}/${PYTHON_DIR}/site-packages"
 export PYTHONPATH = "${STAGING_DIR_NATIVE}${PYTHON_SITEPACKAGES_DIR}"
