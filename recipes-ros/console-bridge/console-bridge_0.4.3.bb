@@ -17,3 +17,6 @@ SRC_URI[sha256sum] = "9f024a38f0947ed9fa67f58829980c2d90d84740e6de20d75cb00866f0
 S = "${WORKDIR}/${ROS_SP}"
 
 inherit cmake catkin_opt_ros faulty-solibs
+
+# For some reason, the cmake subdir is under ${libdir} instead of ${datadir} for this component.
+FILES_${PN}-dev += "${libdir}/${ROS_BPN}/cmake"
