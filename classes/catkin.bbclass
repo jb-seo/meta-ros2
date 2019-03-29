@@ -2,9 +2,8 @@
 # Copyright (c) 2013 Stefan Herbrechtsmeier, Bielefeld University
 # 
 
-ROS_USE_PYTHON3 ??= "no"
-
-inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} catkin_opt_ros faulty-solibs
+inherit catkin_opt_ros
+inherit cmake ${@'distutils3-base' if bb.utils.to_boolean(d.getVar('ROS_USE_PYTHON3', True)) else 'distutils-base'} faulty-solibs
 
 # Prepend build dependency on "catkin-runtime" and "catkin-native"
 # if the package is not "catkin" or "catkin-runtime"
