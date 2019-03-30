@@ -3,3 +3,12 @@
 FILES_${PN}_prepend = " \
     ${bindir} \
 "
+
+do_install_append() {
+    rm -rf ${D}${datadir}/${ROS_BPN}/environment
+    rm -f ${D}${datadir}/${ROS_BPN}/local_setup.bash
+    rm -f ${D}${datadir}/${ROS_BPN}/local_setup.sh
+    rm -f ${D}${datadir}/${ROS_BPN}/local_setup.zsh
+
+    rmdir -p --ignore-fail-on-non-empty ${D}${datadir}/${ROS_BPN}
+}
