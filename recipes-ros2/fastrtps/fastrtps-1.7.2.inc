@@ -3,6 +3,4 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/fastrtps:"
 
 SRC_URI += " \
-    file://0001-don-t-use-INSTALL_INTERFACE.patch \
-    file://0001-FindTinyXML2-use-pkg-config-to-find-tinyxml2.patch \
 "
