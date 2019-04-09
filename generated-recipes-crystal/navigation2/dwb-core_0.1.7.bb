@@ -34,7 +34,17 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    dwb-msgs \
+    geometry-msgs \
+    nav-2d-utils \
+    nav-msgs \
+    nav2-costmap-2d \
+    pluginlib \
+    rclcpp \
+    std-msgs \
+    tf2-ros \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

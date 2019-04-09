@@ -26,6 +26,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     python-pyyaml \
+    rclpy \
+    ros2cli \
     ros2srv \
     ros2topic \
 "

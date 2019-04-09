@@ -51,7 +51,22 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    geometry-msgs \
+    launch-ros \
+    launch-testing \
+    message-filters \
+    nav-msgs \
+    nav2-dynamic-params \
+    nav2-tasks \
+    nav2-util \
+    rclcpp \
+    sensor-msgs \
+    std-srvs \
+    tf2 \
+    tf2-geometry-msgs \
+    tf2-ros \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

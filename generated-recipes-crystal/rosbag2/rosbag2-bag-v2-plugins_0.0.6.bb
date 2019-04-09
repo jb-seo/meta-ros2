@@ -36,7 +36,15 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    pluginlib \
+    rclcpp \
+    rcutils \
+    ros1-bridge \
+    ros1-rosbag-storage-vendor \
+    rosbag2 \
+    rosbag2-storage \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

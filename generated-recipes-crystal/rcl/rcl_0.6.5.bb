@@ -35,6 +35,10 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ament-cmake \
+    rcl-interfaces \
+    rcl-logging-noop \
+    rcutils \
+    rmw-implementation \
     rosidl-default-runtime \
 "
 

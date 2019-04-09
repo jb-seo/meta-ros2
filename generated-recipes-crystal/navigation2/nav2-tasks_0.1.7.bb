@@ -36,7 +36,15 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
+    behaviortree-cpp \
+    builtin-interfaces \
+    geometry-msgs \
+    nav2-msgs \
+    rclcpp \
     rosidl-default-runtime \
+    std-msgs \
+    tf2 \
+    tf2-geometry-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -40,7 +40,17 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    ament-index-cpp \
+    pluginlib \
+    poco-vendor \
+    rcutils \
+    rosbag2-storage \
+    rosidl-generator-cpp \
+    rosidl-typesupport-cpp \
+    rosidl-typesupport-introspection-cpp \
+    shared-queues-vendor \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

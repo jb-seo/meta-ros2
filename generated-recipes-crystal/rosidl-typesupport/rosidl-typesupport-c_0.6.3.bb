@@ -31,6 +31,8 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
 "
 
 ROS_EXEC_DEPENDS = " \
+    poco \
+    poco-vendor \
     rosidl-typesupport-interface \
 "
 

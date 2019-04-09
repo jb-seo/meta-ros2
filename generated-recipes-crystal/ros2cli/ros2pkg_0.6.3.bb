@@ -27,6 +27,7 @@ ROS_EXEC_DEPENDS = " \
     python3-catkin-pkg-modules \
     python3-empy \
     python3-pkg-resources \
+    ros2cli \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

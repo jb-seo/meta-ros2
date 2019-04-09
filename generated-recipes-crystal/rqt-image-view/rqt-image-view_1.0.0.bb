@@ -32,7 +32,16 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = ""
+ROS_EXEC_DEPENDS = " \
+    cv-bridge \
+    geometry-msgs \
+    image-transport \
+    qt-gui-cpp \
+    rclcpp \
+    rqt-gui \
+    rqt-gui-cpp \
+    sensor-msgs \
+"
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = ""

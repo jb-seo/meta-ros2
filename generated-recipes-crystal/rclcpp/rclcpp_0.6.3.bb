@@ -43,6 +43,9 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
     ament-cmake \
+    rcl \
+    rcl-yaml-param-parser \
+    rmw-implementation \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
