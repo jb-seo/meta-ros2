@@ -45,19 +45,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    angles \
-    costmap-queue \
-    dwb-core \
-    geometry-msgs \
-    nav-2d-msgs \
-    nav-2d-utils \
-    nav2-costmap-2d \
-    nav2-util \
-    pluginlib \
-    rclcpp \
-    sensor-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

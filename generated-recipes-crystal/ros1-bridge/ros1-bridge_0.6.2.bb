@@ -46,25 +46,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
     pkgconf-native \
 "
 
-ROS_EXEC_DEPENDS = " \
-    actionlib-msgs \
-    builtin-interfaces \
-    diagnostic-msgs \
-    gazebo-msgs \
-    geometry-msgs \
-    nav-msgs \
-    python-pyyaml \
-    rclcpp \
-    rcutils \
-    sensor-msgs \
-    shape-msgs \
-    std-msgs \
-    std-srvs \
-    stereo-msgs \
-    tf2-msgs \
-    trajectory-msgs \
-    visualization-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

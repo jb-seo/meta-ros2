@@ -31,17 +31,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    builtin-interfaces \
-    geometry-msgs \
-    nav-msgs \
-    nav2-msgs \
-    nav2-robot \
-    nav2-tasks \
-    nav2-util \
-    rclcpp \
-    visualization-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

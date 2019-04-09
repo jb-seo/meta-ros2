@@ -47,11 +47,7 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = " \
     rosidl-cmake-native \
 "
 
-ROS_EXEC_DEPENDS = " \
-    rcutils \
-    rmw \
-    rmw-fastrtps-shared-cpp \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

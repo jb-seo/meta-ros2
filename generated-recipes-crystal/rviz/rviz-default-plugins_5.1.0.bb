@@ -48,19 +48,7 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    laser-geometry \
-    map-msgs \
-    nav-msgs \
-    pluginlib \
     qtbase \
-    rclcpp \
-    resource-retriever \
-    rviz-common \
-    rviz-rendering \
-    tinyxml-vendor \
-    urdf \
-    visualization-msgs \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

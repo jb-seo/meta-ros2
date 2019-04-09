@@ -29,16 +29,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    ecl-build \
-    ecl-config \
-    ecl-errors \
-    ecl-exceptions \
-    ecl-license \
-    ecl-threads \
-    ecl-time \
-    ecl-time-lite \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

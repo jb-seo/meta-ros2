@@ -23,7 +23,6 @@ ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 ROS_EXEC_DEPENDS = " \
     launch \
     launch-ros \
-    rclpy \
     std-msgs \
 "
 

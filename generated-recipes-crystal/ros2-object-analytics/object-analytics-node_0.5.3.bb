@@ -33,18 +33,8 @@ ROS_EXPORT_DEPENDS = ""
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    ament-index-cpp \
     ament-index-python \
-    class-loader \
-    cv-bridge \
-    geometry-msgs \
-    message-filters \
-    object-analytics-msgs \
-    object-msgs \
     pcl \
-    pcl-conversions \
-    rclcpp \
-    sensor-msgs \
     std-msgs \
 "
 

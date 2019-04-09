@@ -28,8 +28,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    builtin-interfaces \
-    geometry-msgs \
     rosidl-default-runtime \
 "
 

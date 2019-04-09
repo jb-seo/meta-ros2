@@ -38,16 +38,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    costmap-queue \
-    dwb-controller \
-    dwb-core \
-    dwb-critics \
-    dwb-msgs \
-    dwb-plugins \
-    nav-2d-msgs \
-    nav-2d-utils \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

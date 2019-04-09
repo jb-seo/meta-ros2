@@ -31,7 +31,6 @@ ROS_EXEC_DEPENDS = " \
     rosidl-generator-cpp \
     rosidl-parser \
     rosidl-typesupport-interface \
-    rosidl-typesupport-introspection-c \
 "
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.

@@ -43,18 +43,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    boost \
-    dwb-core \
-    nav-2d-msgs \
-    nav-2d-utils \
-    nav2-msgs \
-    nav2-robot \
-    nav2-tasks \
-    nav2-util \
-    rclcpp \
-    std-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

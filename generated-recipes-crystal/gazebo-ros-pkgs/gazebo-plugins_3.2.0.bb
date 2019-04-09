@@ -41,19 +41,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    camera-info-manager \
-    gazebo-dev \
-    gazebo-ros \
-    geometry-msgs \
-    image-transport \
-    nav-msgs \
-    rclcpp \
-    sensor-msgs \
-    std-msgs \
-    tf2-geometry-msgs \
-    tf2-ros \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

@@ -27,9 +27,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    rcl-interfaces \
-    rclpy \
-    ros2cli \
     ros2node \
 "
 

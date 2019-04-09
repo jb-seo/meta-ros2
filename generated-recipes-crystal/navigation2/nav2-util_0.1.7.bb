@@ -30,16 +30,7 @@ ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    libsdl \
-    libsdl-image \
-    nav-msgs \
-    nav2-msgs \
-    rclcpp \
-    tf2 \
-    tf2-ros \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

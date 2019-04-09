@@ -61,27 +61,7 @@ ROS_EXPORT_DEPENDS = " \
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
-ROS_EXEC_DEPENDS = " \
-    geometry-msgs \
-    laser-geometry \
-    map-msgs \
-    message-filters \
-    nav-msgs \
-    nav2-dynamic-params \
-    nav2-msgs \
-    nav2-util \
-    nav2-voxel-grid \
-    pcl \
-    pluginlib \
-    rclcpp \
-    sensor-msgs \
-    std-msgs \
-    tf2 \
-    tf2-geometry-msgs \
-    tf2-ros \
-    tf2-sensor-msgs \
-    visualization-msgs \
-"
+ROS_EXEC_DEPENDS = ""
 
 # Currently informational only -- see http://www.ros.org/reps/rep-0149.html#dependency-tags.
 ROS_TEST_DEPENDS = " \

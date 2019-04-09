@@ -27,8 +27,6 @@ ROS_EXPORT_DEPENDS = " \
 ROS_BUILDTOOL_EXPORT_DEPENDS = ""
 
 ROS_EXEC_DEPENDS = " \
-    action-msgs \
-    builtin-interfaces \
     rosidl-default-runtime \
 "
 
