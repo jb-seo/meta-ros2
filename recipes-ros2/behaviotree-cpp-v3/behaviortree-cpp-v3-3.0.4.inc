@@ -4,3 +4,6 @@ ROS_BUILD_DEPENDS += " \
     ament-cmake-gtest \
     cppzmq \
 "
+
+# We don't need anything from elfutils at runtime (libdw appears to be statically linked).
+ROS_EXEC_DEPENDS_remove = "elfutils"
