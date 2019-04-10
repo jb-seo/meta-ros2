@@ -45,3 +45,8 @@ FILES_${PN}-dev = " \
     ${datadir}/${ROS_BPN}/cmake \
     ${includedir} \
 "
+
+# TODO need to fix it proper way
+# It's a workaround that some package doesn't provide any single file but not built by generated one.
+ROS_EXEC_DEPENDS_remove = "libeigen"
+ROS_EXEC_DEPENDS_remove = "cppcheck-native"
