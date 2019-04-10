@@ -20,9 +20,15 @@ do_install_append() {
     rm -f ${D}${prefix}/setup.sh
     rm -f ${D}${prefix}/setup.zsh
     rm -f ${D}${prefix}/_order_packages.py
+
+    # TODO need to fix it proper way
+    # It's a workaound to fix do_rootfs failure when package doesn't provide any single file.
+    install -d ${D}${datadir}/ros-packages
+    echo "${BPN}" > ${D}${datadir}/ros-packages/${ROS_BPN}
 }
 
 FILES_${PN} = " \
+    ${datadir}/ros-packages/${ROS_BPN} \
     ${datadir}/${ROS_BPN}/package.xml \
     ${datadir}/${ROS_BPN}/resource \
     ${datadir}/${ROS_BPN}/msg \
