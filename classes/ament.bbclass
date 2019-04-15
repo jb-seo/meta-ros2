@@ -21,7 +21,7 @@ DEPENDS_append_bouncy = " \
     ament-tools-native \
 "
 
-EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-i386-${TARGET_OS}-${LINKER_HASH_STYLE}"
+EXTRA_OECMAKE_append = " -DBUILD_TESTING=OFF -DPYTHON_SOABI=cpython-35m-arm-linux-gnueabihf"
 # XXX Without STAGING_DIR_HOST path included, rmw-implementation:do_confiure() fails with:
 #
 #    "Could not find ROS middleware implementation 'NOTFOUND'"
