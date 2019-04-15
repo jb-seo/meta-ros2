@@ -19,7 +19,7 @@ ROS_BUILDTOOL_DEPENDS = " \
 ROS_EXPORT_DEPENDS = ""
 
 ROS_BUILDTOOL_EXPORT_DEPENDS = " \
-    python3-dev-native \
+    python3-native \
 "
 
 ROS_EXEC_DEPENDS = ""

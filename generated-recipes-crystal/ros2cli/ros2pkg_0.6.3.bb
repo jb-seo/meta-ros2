@@ -26,7 +26,7 @@ ROS_EXEC_DEPENDS = " \
     ament-index-python \
     python3-catkin-pkg-modules \
     python3-empy \
-    python3-pkg-resources \
+    python3-setuptools \
     ros2cli \
 "
 
